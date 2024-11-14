@@ -98,3 +98,4 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\ob
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.csproj.GenerateResource.cache
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.CreateUsersTable1.resources
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.RemoveAdmins.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.GWOTSections.resources
