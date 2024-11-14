@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "30bmrUxce1W5RLGtBZySUcjxDavw1QQKbNr1DHGqsR9jnuWPwA8aIft81eDdsqXCwp5vEw29K1ahdxFo8XfOyA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\etash\\Documents\\ClonedRepository\\CIADatabase\\CIADatabase\\CIADatabase\\CIADatabase.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\etash\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512"
+  ],
+  "logs": []
+}

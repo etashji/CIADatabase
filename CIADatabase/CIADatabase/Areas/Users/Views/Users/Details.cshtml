@@ -1,0 +1,34 @@
+﻿@model CIADatabase.Areas.Users.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
+        <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
+        <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Age)</dt>
+        <dd>@Html.DisplayFor(model => model.Age)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Username)</dt>
+        <dd>@Html.DisplayFor(model => model.Username)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Change Password", "Edit", new { id = Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.UserId }, new { @class = "btn btn-danger" })
+</p>

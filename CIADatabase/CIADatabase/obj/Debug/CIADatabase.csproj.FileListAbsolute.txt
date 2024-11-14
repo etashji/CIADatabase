@@ -59,6 +59,7 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bi
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.Security.dll
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Newtonsoft.Json.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Owin.dll
@@ -70,13 +71,12 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bi
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\System.Web.WebPages.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\System.Web.WebPages.Razor.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\WebGrease.dll
-C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\EntityFramework.xml
-C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\EntityFramework.SqlServer.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.Security.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\System.Web.Helpers.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\System.Web.Mvc.xml
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\System.Web.Optimization.xml
@@ -92,3 +92,9 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\ob
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.csproj.CopyComplete
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.pdb
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\EntityFramework.xml
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\bin\EntityFramework.SqlServer.xml
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.CreateUsersTable.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.csproj.GenerateResource.cache
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.CreateUsersTable1.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.RemoveAdmins.resources
