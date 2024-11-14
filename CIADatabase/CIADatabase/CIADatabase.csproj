@@ -150,6 +150,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\GWOT\Controllers\GWOTSectionsController.cs" />
+    <Compile Include="Areas\GWOT\GWOTAreaRegistration.cs" />
+    <Compile Include="Areas\GWOT\Models\GWOTArticle.cs" />
+    <Compile Include="Areas\GWOT\Models\GWOTSections.cs" />
     <Compile Include="Areas\Users\Controllers\UsersController.cs" />
     <Compile Include="Areas\Users\Models\User.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
@@ -169,6 +173,10 @@
     <Compile Include="Migrations\202411141926301_RemoveAdmins.cs" />
     <Compile Include="Migrations\202411141926301_RemoveAdmins.designer.cs">
       <DependentUpon>202411141926301_RemoveAdmins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411142009543_GWOTSections.cs" />
+    <Compile Include="Migrations\202411142009543_GWOTSections.designer.cs">
+      <DependentUpon>202411142009543_GWOTSections.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,6 +216,13 @@
     <Content Include="Areas\Users\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Users\Views\Users\Index.cshtml" />
     <Content Include="Areas\Users\Views\Users\Login.cshtml" />
+    <Content Include="Areas\GWOT\Views\web.config" />
+    <Content Include="Areas\GWOT\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTSections\Create.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTSections\Delete.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTSections\Details.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTSections\Edit.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTSections\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -236,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\GWOT\Data\" />
     <Folder Include="Areas\Users\Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Users\" />
@@ -276,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411141926301_RemoveAdmins.resx">
       <DependentUpon>202411141926301_RemoveAdmins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411142009543_GWOTSections.resx">
+      <DependentUpon>202411142009543_GWOTSections.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using CIADatabase.Areas.Users.Models;
+﻿using CIADatabase.Areas.GWOT;
+using CIADatabase.Areas.Users.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -24,6 +25,7 @@ namespace CIADatabase.Models
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<GWOTSections> GWOTSections { get; set; }
 
     }
 
