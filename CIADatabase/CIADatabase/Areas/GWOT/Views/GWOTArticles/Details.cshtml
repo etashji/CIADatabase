@@ -1,0 +1,61 @@
+﻿@model CIADatabase.Areas.GWOT.Models.GWOTArticle
+
+<p><strong>Location:</strong> @Model.Location</p>
+<p><strong>Local Time:</strong> @Model.LocalTime</p>
+<p><strong>Zulu Time:</strong> @Model.ZuluTime</p>
+
+<h3>Briefing</h3>
+<p>@Model.Briefing</p>
+
+<h3>After Action Report</h3>
+<p>@Model.AfterActionReport</p>
+
+@* Maps Section *@
+@if (Model.PoliticalMap != null || Model.MilitaryMap != null || Model.PresidentRegionMap != null || Model.CountryMap != null ||
+     Model.RegionMap != null || Model.LocalMap != null || Model.CityMap != null ||
+     Model.UpdatedPoliticalMap != null || Model.UpdatedMilitaryMap != null || Model.UpdatedRegionMap != null)
+{
+    <h3>Maps</h3>
+    <div class="maps-container">
+        @if (Model.PoliticalMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)" alt="Political Map" style="max-width:200px;" />
+        }
+        @if (Model.MilitaryMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)" alt="Military Map" style="max-width:200px;" />
+        }
+        @if (Model.RegionMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)" alt="Region Map" style="max-width:200px;" />
+        }
+        @if (Model.CountryMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)" alt="Country Map" style="max-width:200px;" />
+        }
+        @if (Model.RegionMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)" alt="Second Region Map" style="max-width:200px;" />
+        }
+        @if (Model.LocalMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)" alt="Local Map" style="max-width:200px;" />
+        }
+        @if (Model.CityMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)" alt="City Map" style="max-width:200px;" />
+        }
+        @if (Model.UpdatedPoliticalMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)" alt="Updated Political Map" style="max-width:200px;" />
+        }
+        @if (Model.UpdatedMilitaryMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)" alt="Updated Military Map" style="max-width:200px;" />
+        }
+        @if (Model.UpdatedRegionMap != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)" alt="Updated Region Map" style="max-width:200px;" />
+        }
+    </div>
+}

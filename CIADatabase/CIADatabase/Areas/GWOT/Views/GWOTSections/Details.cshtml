@@ -1,27 +1,29 @@
 ﻿@model CIADatabase.Areas.GWOT.GWOTSections
 
-@{
-    ViewBag.Title = "Details";
-    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
-}
+<h2>@Model.Title</h2>
 
-<h2>Details</h2>
-
-<div>
-    <h4>GWOTSections</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-    </dl>
-</div>
+<!-- Button to create an article in the current section -->
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SectionId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create Article", "Create", "GWOTArticles", new { sectionId = Model.SectionId, area = "GWOT" }, new { @class = "btn btn-primary" })
 </p>
+
+<h3>Articles in this Section</h3>
+
+@if (Model.Articles != null && Model.Articles.Any())
+{
+    <ul>
+        @foreach (var article in Model.Articles)
+        {
+            <li>
+                <h4>@Html.DisplayFor(modelItem => article.ZuluTime)</h4>
+                @Html.ActionLink("View Details", "Details", "GWOTArticles", new { id = article.GWOTArticleId, area = "GWOT" }, null) |
+                @Html.ActionLink("Edit", "Edit", "GWOTArticles", new { id = article.GWOTArticleId, area = "GWOT" }, null) |
+                @Html.ActionLink("Delete", "Delete", "GWOTArticles", new { id = article.GWOTArticleId, area = "GWOT" }, null)
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No articles available in this section.</p>
+}

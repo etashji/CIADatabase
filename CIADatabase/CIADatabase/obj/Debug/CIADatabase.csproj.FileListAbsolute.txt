@@ -99,3 +99,6 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\ob
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.CreateUsersTable1.resources
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.RemoveAdmins.resources
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.GWOTSections.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.Articles.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.fixArticles.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.EditDates.resources

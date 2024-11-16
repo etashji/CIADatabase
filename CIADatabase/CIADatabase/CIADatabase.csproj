@@ -150,6 +150,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\GWOT\Controllers\GWOTArticlesController.cs" />
     <Compile Include="Areas\GWOT\Controllers\GWOTSectionsController.cs" />
     <Compile Include="Areas\GWOT\GWOTAreaRegistration.cs" />
     <Compile Include="Areas\GWOT\Models\GWOTArticle.cs" />
@@ -177,6 +178,18 @@
     <Compile Include="Migrations\202411142009543_GWOTSections.cs" />
     <Compile Include="Migrations\202411142009543_GWOTSections.designer.cs">
       <DependentUpon>202411142009543_GWOTSections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411142056581_Articles.cs" />
+    <Compile Include="Migrations\202411142056581_Articles.designer.cs">
+      <DependentUpon>202411142056581_Articles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411142058184_fixArticles.cs" />
+    <Compile Include="Migrations\202411142058184_fixArticles.designer.cs">
+      <DependentUpon>202411142058184_fixArticles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411142210508_EditDates.cs" />
+    <Compile Include="Migrations\202411142210508_EditDates.designer.cs">
+      <DependentUpon>202411142210508_EditDates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +236,10 @@
     <Content Include="Areas\GWOT\Views\GWOTSections\Details.cshtml" />
     <Content Include="Areas\GWOT\Views\GWOTSections\Edit.cshtml" />
     <Content Include="Areas\GWOT\Views\GWOTSections\Index.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTArticles\Create.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTArticles\Delete.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTArticles\Details.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTArticles\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -295,6 +312,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411142009543_GWOTSections.resx">
       <DependentUpon>202411142009543_GWOTSections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411142056581_Articles.resx">
+      <DependentUpon>202411142056581_Articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411142058184_fixArticles.resx">
+      <DependentUpon>202411142058184_fixArticles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411142210508_EditDates.resx">
+      <DependentUpon>202411142210508_EditDates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
