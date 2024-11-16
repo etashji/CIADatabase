@@ -27,6 +27,7 @@ namespace CIADatabase.Models
         public DbSet<User> Users { get; set; }
         public DbSet<GWOTSections> GWOTSections { get; set; }
 
+        public System.Data.Entity.DbSet<CIADatabase.Areas.GWOT.Models.GWOTArticle> GWOTArticles { get; set; }
     }
 
 }

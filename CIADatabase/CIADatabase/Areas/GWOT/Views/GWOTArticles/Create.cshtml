@@ -1,0 +1,49 @@
+﻿@model CIADatabase.Areas.GWOT.Models.GWOTArticle
+
+
+<h2>Create Article</h2>
+
+@using (Html.BeginForm("Create", "GWOTArticles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="GWOTSectionId" value="@ViewBag.SectionId" />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Briefing)
+        @Html.TextAreaFor(model => model.Briefing, new { @class = "form-control", @rows = 5 })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AfterActionReport)
+        @Html.TextAreaFor(model => model.AfterActionReport, new { @class = "form-control", @rows = 5 })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LocalTime)
+        @Html.TextBoxFor(model => model.LocalTime, "{0:yyyy-MM-ddTHH:mm}", new { type = "datetime-local", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZuluTime)
+        @Html.TextBoxFor(model => model.ZuluTime, "{0:yyyy-MM-ddTHH:mm}", new { type = "datetime-local", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Location)
+        @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+    </div>
+
+    <!-- Image Uploads -->
+    <div class="form-group">
+        <label for="PoliticalMap">Political Map</label>
+        <input type="file" name="PoliticalMap" />
+    </div>
+    <div class="form-group">
+        <label for="MilitaryMap">Military Map</label>
+        <input type="file" name="MilitaryMap" />
+    </div>
+    <!-- Repeat for other images -->
+
+    <button type="submit" class="btn btn-primary">Save Article</button>
+}
