@@ -102,3 +102,5 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\ob
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.Articles.resources
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.fixArticles.resources
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.EditDates.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.Profiles.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Debug\CIADatabase.Migrations.ProfileEdit.resources

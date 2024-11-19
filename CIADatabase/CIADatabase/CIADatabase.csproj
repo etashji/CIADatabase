@@ -151,9 +151,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\GWOT\Controllers\GWOTArticlesController.cs" />
+    <Compile Include="Areas\GWOT\Controllers\GWOTProfilesController.cs" />
+    <Compile Include="Areas\GWOT\Controllers\GWOTProfileSectionsController.cs" />
     <Compile Include="Areas\GWOT\Controllers\GWOTSectionsController.cs" />
     <Compile Include="Areas\GWOT\GWOTAreaRegistration.cs" />
     <Compile Include="Areas\GWOT\Models\GWOTArticle.cs" />
+    <Compile Include="Areas\GWOT\Models\GWOTProfile.cs" />
+    <Compile Include="Areas\GWOT\Models\GWOTProfileSections.cs" />
     <Compile Include="Areas\GWOT\Models\GWOTSections.cs" />
     <Compile Include="Areas\Users\Controllers\UsersController.cs" />
     <Compile Include="Areas\Users\Models\User.cs" />
@@ -191,6 +195,14 @@
     <Compile Include="Migrations\202411142210508_EditDates.designer.cs">
       <DependentUpon>202411142210508_EditDates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411190132014_Profiles.cs" />
+    <Compile Include="Migrations\202411190132014_Profiles.designer.cs">
+      <DependentUpon>202411190132014_Profiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411190348054_ProfileEdit.cs" />
+    <Compile Include="Migrations\202411190348054_ProfileEdit.designer.cs">
+      <DependentUpon>202411190348054_ProfileEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -211,6 +223,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\cia-logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -240,6 +253,17 @@
     <Content Include="Areas\GWOT\Views\GWOTArticles\Delete.cshtml" />
     <Content Include="Areas\GWOT\Views\GWOTArticles\Details.cshtml" />
     <Content Include="Areas\GWOT\Views\GWOTArticles\Edit.cshtml" />
+    <Content Include="Content\images\GWOT.jpg" />
+    <Content Include="Areas\GWOT\Views\GWOTSections\GWOT.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfileSections\Create.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfileSections\Delete.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfileSections\Details.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfileSections\Edit.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfileSections\Index.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfiles\Create.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfiles\Delete.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfiles\Details.cshtml" />
+    <Content Include="Areas\GWOT\Views\GWOTProfiles\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -321,6 +345,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411142210508_EditDates.resx">
       <DependentUpon>202411142210508_EditDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411190132014_Profiles.resx">
+      <DependentUpon>202411190132014_Profiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411190348054_ProfileEdit.resx">
+      <DependentUpon>202411190348054_ProfileEdit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

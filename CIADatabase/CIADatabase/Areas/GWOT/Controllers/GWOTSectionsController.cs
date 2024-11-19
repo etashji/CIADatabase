@@ -16,6 +16,10 @@ namespace CIADatabase.Areas.GWOT.Controllers
         private CIADatabaseContext db = new CIADatabaseContext();
 
         // GET: GWOT/GWOTSections
+        public ActionResult GWOT()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View(db.GWOTSections.ToList());
@@ -37,6 +41,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         }
 
         // GET: GWOT/GWOTSections/Create 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +52,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "SectionId,Title")] GWOTSections gWOTSections)
         {
             if (ModelState.IsValid)
@@ -60,6 +66,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         }
 
         // GET: GWOT/GWOTSections/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +86,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "SectionId,Title")] GWOTSections gWOTSections)
         {
             if (ModelState.IsValid)
@@ -91,6 +99,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         }
 
         // GET: GWOT/GWOTSections/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,13 +117,34 @@ namespace CIADatabase.Areas.GWOT.Controllers
         // POST: GWOT/GWOTSections/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            GWOTSections gWOTSections = db.GWOTSections.Find(id);
+            // Find the section along with its related articles
+            GWOTSections gWOTSections = db.GWOTSections
+                .Include(s => s.Articles) // Assuming the navigation property for articles is "Articles"
+                .SingleOrDefault(s => s.SectionId == id);
+
+            if (gWOTSections == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Remove all related articles
+            if (gWOTSections.Articles != null && gWOTSections.Articles.Any())
+            {
+                db.GWOTArticles.RemoveRange(gWOTSections.Articles); // Assuming GWOTArticles is the DbSet for articles
+            }
+
+            // Remove the section
             db.GWOTSections.Remove(gWOTSections);
+
+            // Save changes to the database
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {
