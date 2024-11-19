@@ -1,0 +1,48 @@
+﻿@model CIADatabase.Areas.GWOT.Models.GWOTProfileSections
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <!-- Centered Section Title -->
+    <h2>@Model.Title</h2>
+
+    <!-- Buttons for editing and deleting the section -->
+    @if (Request.IsAuthenticated)
+    {
+        <div class="mb-4">
+            @Html.ActionLink("Edit", "Edit", "GWOTProfileSections", new { id = Model.SectionId, area = "GWOT" }, new { @class = "btn custom-btn" })
+            @Html.ActionLink("Delete", "Delete", "GWOTProfileSections", new { id = Model.SectionId, area = "GWOT" }, new { @class = "btn btn-danger" })
+        </div>
+
+        <!-- Button to create an article in the current section -->
+        @Html.ActionLink("Add Profile", "Create", "GWOTProfiles", new { sectionId = Model.SectionId, area = "GWOT" }, new { @class = "btn custom-btn mb-4" })
+    }
+</div>
+
+
+@if (Model.Profiles != null && Model.Profiles.Any())
+{
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach (var profile in Model.Profiles.OrderBy(p => p.LastName))
+            {
+            <div class="col-12 mb-3 text-center">
+                <!-- Display the article title as a button -->
+                    @Html.ActionLink(
+                        $"{profile.FirstName} \"{profile.Alias}\" {profile.LastName}",
+                        "Details",
+                        "GWOTProfiles",
+                        new { id = profile.ProfileId, area = "GWOT" },
+                        new { @class = "btn custom-btn w-75" })
+            </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <p class="text-center">No profiles available in this section.</p>
+}

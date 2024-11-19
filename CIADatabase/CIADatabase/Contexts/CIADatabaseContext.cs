@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using CIADatabase.Areas.GWOT.Models;
 
 namespace CIADatabase.Models
 {
@@ -26,8 +27,11 @@ namespace CIADatabase.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<GWOTSections> GWOTSections { get; set; }
+        public DbSet<GWOTArticle> GWOTArticles { get; set; }
+        public DbSet<GWOTProfileSections> GWOTProfileSections { get; set; }
+        public DbSet<GWOTProfile> GWOTProfiles { get; set; }
 
-        public System.Data.Entity.DbSet<CIADatabase.Areas.GWOT.Models.GWOTArticle> GWOTArticles { get; set; }
+
     }
 
 }

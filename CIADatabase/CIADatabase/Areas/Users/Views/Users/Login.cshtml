@@ -3,34 +3,32 @@
     Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
+<h2 class="text-center mb-4">Login</h2>
 
-@using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="d-flex justify-content-center">
+    @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
 
-
-    <div class="form-group">
-        @Html.Label("Username or Email", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="text" name="identifier" class="form-control" placeholder="Enter username or email" required />
-            @Html.ValidationMessage("identifier", "", new { @class = "text-danger" })
+        <div class="form-group text-center">
+            @Html.Label("Username or Email", new { @class = "control-label mb-2" })
+            <div class="d-flex justify-content-center">
+                <input type="text" name="identifier" class="form-control text-center" style="max-width: 300px; background-color: white;" placeholder="Enter username or email" required />
+                @Html.ValidationMessage("identifier", "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Password", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="password" name="password" class="form-control" placeholder="Enter password" required />
-            @Html.ValidationMessage("password", "", new { @class = "text-danger" })
+        <div class="form-group text-center mt-3">
+            @Html.Label("Password", new { @class = "control-label mb-2" })
+            <div class="d-flex justify-content-center">
+                <input type="password" name="password" class="form-control text-center" style="max-width: 300px; background-color: white;" placeholder="Enter password" required />
+                @Html.ValidationMessage("password", "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-primary">Login</button>
+        <div class="form-group mt-4 text-center">
+            <button type="submit" class="btn custom-btn btn-lg" style="max-width: 300px;">Login</button>
         </div>
-    </div>
-}
-
+    }
+</div>

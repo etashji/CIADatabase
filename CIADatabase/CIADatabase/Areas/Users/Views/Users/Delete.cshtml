@@ -5,36 +5,40 @@
     Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<div class="container d-flex flex-column align-items-center mt-5">
+    <!-- Title -->
+    <h2 class="text-center mb-4 text-danger">Delete User</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
-        <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+    <!-- User Details Section -->
+    <div class="w-100" style="max-width: 400px;">
+        <h4 class="text-center">Are you sure you want to delete this user?</h4>
+        <hr />
+        <dl class="text-center">
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.FirstName)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.FirstName)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
-        <dd>@Html.DisplayFor(model => model.LastName)</dd>
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.LastName)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.LastName)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Age)</dt>
-        <dd>@Html.DisplayFor(model => model.Age)</dd>
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.Age)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.Age)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-        <dd>@Html.DisplayFor(model => model.Email)</dd>
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.Email)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Username)</dt>
-        <dd>@Html.DisplayFor(model => model.Username)</dd>
-    </dl>
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.Username)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.Username)</dd>
+        </dl>
+    </div>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+    <!-- Action Buttons -->
+    <div class="mt-4 w-100 d-flex flex-column align-items-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger btn-lg mb-3 btn-danger" style="width: 300px;">Delete</button>
+        }
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn custom-btn btn-lg mb-3", style = "width: 300px;" })
+    </div>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>

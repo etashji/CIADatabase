@@ -30,11 +30,14 @@ namespace CIADatabase.Areas.GWOT.Controllers
             {
                 return HttpNotFound();
             }
+            var section = db.GWOTSections.Find(gWOTArticle.GWOTSectionId);
+            ViewBag.SectionTitle = section.Title;
             return View(gWOTArticle);
         }
 
         // GET: GWOT/GWOTArticles/Create
         // GET: Articles/Create
+        [Authorize]
         public ActionResult Create(int? sectionId)
         {
             if (sectionId == null)
@@ -42,18 +45,43 @@ namespace CIADatabase.Areas.GWOT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            // Fetch the section based on the sectionId
+            var section = db.GWOTSections.Find(sectionId);
+            if (section == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Pass the section title to the ViewBag
+            ViewBag.SectionTitle = section.Title; // Assuming the section has a Title property
             ViewBag.SectionId = sectionId;
+
             return View(new GWOTArticle { GWOTSectionId = sectionId.Value });
         }
+
 
         // POST: Articles/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArticleId,Briefing,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId")] GWOTArticle article, HttpPostedFileBase PoliticalMap, HttpPostedFileBase MilitaryMap)
+        [ValidateInput(false)]
+        [Authorize]
+        public ActionResult Create(
+        [Bind(Include = "ArticleId,Briefing,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId")] GWOTArticle article,
+             HttpPostedFileBase PoliticalMap,
+             HttpPostedFileBase MilitaryMap,
+             HttpPostedFileBase PresidentRegionMap,
+             HttpPostedFileBase CountryMap,
+             HttpPostedFileBase RegionMap,
+             HttpPostedFileBase CityMap,
+             HttpPostedFileBase LocalMap,
+             HttpPostedFileBase UpdatedPoliticalMap,
+             HttpPostedFileBase UpdatedMilitaryMap,
+             HttpPostedFileBase UpdatedRegionMap)
         {
             if (ModelState.IsValid)
             {
-                if (article.PoliticalMap != null)
+                // Save PoliticalMap
+                if (PoliticalMap != null)
                 {
                     using (var binaryReader = new BinaryReader(PoliticalMap.InputStream))
                     {
@@ -61,6 +89,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
                     }
                 }
 
+                // Save MilitaryMap
                 if (MilitaryMap != null)
                 {
                     using (var binaryReader = new BinaryReader(MilitaryMap.InputStream))
@@ -68,6 +97,80 @@ namespace CIADatabase.Areas.GWOT.Controllers
                         article.MilitaryMap = binaryReader.ReadBytes(MilitaryMap.ContentLength);
                     }
                 }
+
+                // Save PresidentRegionMap
+                if (PresidentRegionMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(PresidentRegionMap.InputStream))
+                    {
+                        article.PresidentRegionMap = binaryReader.ReadBytes(PresidentRegionMap.ContentLength);
+                    }
+                }
+
+                // Save CountryMap
+                if (CountryMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(CountryMap.InputStream))
+                    {
+                        article.CountryMap = binaryReader.ReadBytes(CountryMap.ContentLength);
+                    }
+                }
+
+                // Save RegionMap
+                if (RegionMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(RegionMap.InputStream))
+                    {
+                        article.RegionMap = binaryReader.ReadBytes(RegionMap.ContentLength);
+                    }
+                }
+
+                // Save CityMap
+                if (CityMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(CityMap.InputStream))
+                    {
+                        article.CityMap = binaryReader.ReadBytes(CityMap.ContentLength);
+                    }
+                }
+
+                // Save LocalMap
+                if (LocalMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(LocalMap.InputStream))
+                    {
+                        article.LocalMap = binaryReader.ReadBytes(LocalMap.ContentLength);
+                    }
+                }
+
+                // Save UpdatedPoliticalMap
+                if (UpdatedPoliticalMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(UpdatedPoliticalMap.InputStream))
+                    {
+                        article.UpdatedPoliticalMap = binaryReader.ReadBytes(UpdatedPoliticalMap.ContentLength);
+                    }
+                }
+
+                // Save UpdatedMilitaryMap
+                if (UpdatedMilitaryMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(UpdatedMilitaryMap.InputStream))
+                    {
+                        article.UpdatedMilitaryMap = binaryReader.ReadBytes(UpdatedMilitaryMap.ContentLength);
+                    }
+                }
+
+                // Save UpdatedRegionMap
+                if (UpdatedRegionMap != null)
+                {
+                    using (var binaryReader = new BinaryReader(UpdatedRegionMap.InputStream))
+                    {
+                        article.UpdatedRegionMap = binaryReader.ReadBytes(UpdatedRegionMap.ContentLength);
+                    }
+                }
+
+                // Attach the article to its section
                 var section = db.GWOTSections.Include(s => s.Articles).SingleOrDefault(s => s.SectionId == article.GWOTSectionId);
                 if (section == null)
                 {
@@ -75,19 +178,24 @@ namespace CIADatabase.Areas.GWOT.Controllers
                 }
                 section.Articles.Add(article);
 
+                // Save the article to the database
                 db.GWOTArticles.Add(article);
                 db.SaveChanges();
-                return RedirectToAction("Details", "GWOTSections", new { id = article.GWOTSectionId });
 
+                // Redirect to the section's Details page
+                return RedirectToAction("Details", "GWOTSections", new { id = article.GWOTSectionId });
             }
 
+            // If model state is invalid, return the view with the current data
             ViewBag.SectionId = new SelectList(db.GWOTSections, "SectionId", "Title", article.GWOTSectionId);
             return View(article);
         }
 
 
+
         // GET: GWOT/GWOTArticles/Edit/5
         // GET: Articles/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,7 +208,8 @@ namespace CIADatabase.Areas.GWOT.Controllers
             {
                 return HttpNotFound();
             }
-
+            var section = db.GWOTSections.Find(article.GWOTSectionId);
+            ViewBag.SectionTitle = section.Title;
             // Populate ViewBag.SectionId with a dropdown of sections
             ViewBag.GWOTArticleId = id;
             ViewBag.SectionId = new SelectList(db.GWOTSections, "SectionId", "Title", article.GWOTSectionId);
@@ -110,7 +219,20 @@ namespace CIADatabase.Areas.GWOT.Controllers
         // POST: Articles/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArticleId,Briefing,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId,GWOTArticleId")] GWOTArticle article)
+        [ValidateInput(false)]
+        [Authorize]
+        public ActionResult Edit(
+        [Bind(Include = "ArticleId,Briefing,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId,GWOTArticleId")] GWOTArticle article,
+            HttpPostedFileBase PoliticalMap,
+            HttpPostedFileBase MilitaryMap,
+            HttpPostedFileBase PresidentRegionMap,
+            HttpPostedFileBase CountryMap,
+            HttpPostedFileBase RegionMap,
+            HttpPostedFileBase CityMap,
+            HttpPostedFileBase LocalMap,
+            HttpPostedFileBase UpdatedPoliticalMap,
+            HttpPostedFileBase UpdatedMilitaryMap,
+            HttpPostedFileBase UpdatedRegionMap)
         {
             if (ModelState.IsValid)
             {
@@ -121,18 +243,44 @@ namespace CIADatabase.Areas.GWOT.Controllers
                     return HttpNotFound("The article no longer exists.");
                 }
 
-                // Update properties
+                // Update non-file properties
                 existingArticle.Briefing = article.Briefing;
                 existingArticle.AfterActionReport = article.AfterActionReport;
                 existingArticle.LocalTime = article.LocalTime;
                 existingArticle.ZuluTime = article.ZuluTime;
                 existingArticle.Location = article.Location;
-                existingArticle.GWOTSectionId = article.GWOTSectionId;
 
+                // Helper function to update file fields
+                byte[] UpdateFile(HttpPostedFileBase file, byte[] existingFile)
+                {
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        using (var binaryReader = new BinaryReader(file.InputStream))
+                        {
+                            return binaryReader.ReadBytes(file.ContentLength);
+                        }
+                    }
+                    return existingFile;
+                }
+
+                // Update file properties
+                existingArticle.PoliticalMap = UpdateFile(PoliticalMap, existingArticle.PoliticalMap);
+                existingArticle.MilitaryMap = UpdateFile(MilitaryMap, existingArticle.MilitaryMap);
+                existingArticle.PresidentRegionMap = UpdateFile(PresidentRegionMap, existingArticle.PresidentRegionMap);
+                existingArticle.CountryMap = UpdateFile(CountryMap, existingArticle.CountryMap);
+                existingArticle.RegionMap = UpdateFile(RegionMap, existingArticle.RegionMap);
+                existingArticle.CityMap = UpdateFile(CityMap, existingArticle.CityMap);
+                existingArticle.LocalMap = UpdateFile(LocalMap, existingArticle.LocalMap);
+                existingArticle.UpdatedPoliticalMap = UpdateFile(UpdatedPoliticalMap, existingArticle.UpdatedPoliticalMap);
+                existingArticle.UpdatedMilitaryMap = UpdateFile(UpdatedMilitaryMap, existingArticle.UpdatedMilitaryMap);
+                existingArticle.UpdatedRegionMap = UpdateFile(UpdatedRegionMap, existingArticle.UpdatedRegionMap);
+
+                // Mark the entity as modified and save changes
                 db.Entry(existingArticle).State = EntityState.Modified;
                 db.SaveChanges();
 
-                return RedirectToAction("Details", "GWOTSections", new { id = article.GWOTSectionId });
+                // Redirect to the section's Details page
+                return RedirectToAction("Details", "GWOTSections", new { id = existingArticle.GWOTSectionId });
             }
 
             // Repopulate ViewBag.SectionId in case of validation errors
@@ -140,9 +288,8 @@ namespace CIADatabase.Areas.GWOT.Controllers
             return View(article);
         }
 
-
-
         // GET: GWOT/GWOTArticles/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -154,12 +301,15 @@ namespace CIADatabase.Areas.GWOT.Controllers
             {
                 return HttpNotFound();
             }
+            var section = db.GWOTSections.Find(gWOTArticle.GWOTSectionId);
+            ViewBag.SectionTitle = section.Title;
             return View(gWOTArticle);
         }
 
         // POST: GWOT/GWOTArticles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             GWOTArticle gWOTArticle = db.GWOTArticles.Find(id);

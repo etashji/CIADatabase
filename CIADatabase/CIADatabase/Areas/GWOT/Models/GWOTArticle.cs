@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using static System.Collections.Specialized.BitVector32;
 
 namespace CIADatabase.Areas.GWOT.Models
@@ -18,6 +19,7 @@ namespace CIADatabase.Areas.GWOT.Models
         public DateTime LocalTime { get; set; } = new DateTime(1753, 1, 1);
 
         [Required]
+        [Display(Name = "Zulu Time")]
         public DateTime ZuluTime { get; set; } = new DateTime(1753, 1, 1);
 
         // Location of the event
@@ -35,6 +37,7 @@ namespace CIADatabase.Areas.GWOT.Models
         public byte[] CityMap { get; set; }
 
         // Text sections
+        [AllowHtml]
         [Required]
         [Column(TypeName = "ntext")]
         [MinLength(10, ErrorMessage = "The briefing must be at least 10 characters long.")]// Adjust column type if using SQL Server
@@ -47,9 +50,11 @@ namespace CIADatabase.Areas.GWOT.Models
         public byte[] UpdatedMilitaryMap { get; set; }
         public byte[] UpdatedRegionMap { get; set; }
 
+        [AllowHtml]
         [Required]
         [Column(TypeName = "ntext")]
         [MinLength(10, ErrorMessage = "The video link must be at least 10 characters long.")]
+        [Display(Name = "After Action Report")]
         public string AfterActionReport { get; set; }
 
         // Foreign key for Section

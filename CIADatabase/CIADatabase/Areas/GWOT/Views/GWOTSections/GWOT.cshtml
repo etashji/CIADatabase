@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Global War on Terror";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <h2 class="text-center">Global War on Terror</h2>
+
+    <!-- Alternate History Summary -->
+    <div class="mt-4 mb-4">
+        <p>
+            At the end of the Cold War, America emerged as the last superpower, poised to lead the world into a new era. However, internal conflicts within the CIA threatened to destabilize this newfound dominance. A rogue faction known as Pantheon embedded itself within the CIA and orchestrated a series of false flag attacks in 1991. Their ultimate goal was to discredit the CIA and seize control of American intelligence operations. Pantheon’s efforts culminated in a terror attack at a Bill Clinton fundraiser and a failed bombing of the U.S. Capitol. While their plot was ultimately uncovered and dismantled, the chaos they left in their wake inspired other groups to target the United States.
+        </p>
+        <p>
+            In the same year, the First Gulf War occurred, ending with Coalition Forces opting for a full invasion and occupation of Iraq. This occupation divided public opinion; some viewed it as a step toward regional security, while others saw it as America asserting its unchallenged dominance.
+        </p>
+        <p>
+            Inspired by Pantheon’s attacks, Osama bin Laden orchestrated the first major terror attack on U.S. soil since Pearl Harbor. In 1993, his bombing of the Twin Towers brought America to its knees, briefly. The U.S. responded with unrelenting force, launching a brutal war in Afghanistan. Bin Laden was swiftly eliminated, and the Taliban all but eradicated. However, the seeds of a protracted and shadowy conflict had been sown for the global war on terror to occur less than 30 years later, and it would be a swift and brutal conflict that would challenge the United States' international dominance'.
+        </p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <!-- View Entries Button -->
+        <a href="@Url.Action("Index", "GWOTSections", new { area = "GWOT" })" class="btn custom-btn btn-lg">
+            View Entries
+        </a>
+
+        <!-- View Important Individuals Button -->
+        <a href="@Url.Action("Index", "GWOTProfileSections", new { area = "GWOT" })" class="btn custom-btn btn-lg">
+            View Profiles
+        </a>
+        <a href="@Url.Action("Index", "Home", new { area = "" })" class="btn custom-btn btn-lg">
+            Return to Home
+        </a>
+    </div>
+</div>
