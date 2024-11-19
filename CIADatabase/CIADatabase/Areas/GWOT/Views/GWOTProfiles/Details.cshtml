@@ -1,0 +1,74 @@
+﻿@model CIADatabase.Areas.GWOT.Models.GWOTProfile
+
+@{
+    ViewBag.Title = "Profile Details";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <!-- Profile Picture -->
+    @if (Model.ProfilePic != null)
+    {
+        <div class="mb-4 text-center">
+            <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProfilePic)"
+                 alt="Profile Picture"
+                 class="img-thumbnail"
+                 style="width: 400px; height: 500px; max-height: 500px; border-radius: 10px;" />
+        </div>
+    }
+
+    <!-- Name and Alias -->
+    <div class="text-center mb-4">
+
+        @if (!string.IsNullOrEmpty(Model.Alias))
+        {
+            <h2>@Model.FirstName "@Model.Alias" @Model.LastName</h2>
+        }
+        else
+        {
+            <h2>@Model.FirstName @Model.LastName</h2>
+        }
+
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        <p><strong>Date of Birth:</strong> @Model.DOB.ToString("MMMM dd, yyyy")</p>
+    </div>
+
+    <!-- Profile Description -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @Html.Raw(Model.Profile)
+    </div>
+
+    <!-- Edit and Delete Buttons (Visible only if signed in) -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="d-flex flex-column align-items-center mt-4" style="max-width: 300px; margin: 0 auto;">
+            @Html.ActionLink(
+                "Edit",
+                "Edit",
+                new { id = Model.ProfileId },
+                new { @class = "btn custom-btn btn-lg mb-3 w-100" } // Wide button with margin
+            )
+            @Html.ActionLink(
+                "Delete",
+                "Delete",
+                new { id = Model.ProfileId },
+                new { @class = "btn btn-danger btn-lg w-100" } // Wide button
+            )
+        </div>
+    }
+
+    <!-- Back to List Button (Always visible) -->
+    <div class="d-flex justify-content-center mt-4" style="max-width: 300px; margin: 0 auto;">
+        @Html.ActionLink(
+            "Back to List",
+            "Details",
+            "GWOTProfileSections", // Replace with the correct controller if needed
+            new { id = Model.ProfileSectionId, area = "GWOT" }, // Update area if applicable
+            new { @class = "btn custom-btn btn-lg w-50" } // Centered and wide button
+        )
+    </div>
+</div>

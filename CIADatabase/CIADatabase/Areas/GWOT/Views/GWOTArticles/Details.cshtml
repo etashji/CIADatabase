@@ -1,61 +1,171 @@
 ﻿@model CIADatabase.Areas.GWOT.Models.GWOTArticle
 
-<p><strong>Location:</strong> @Model.Location</p>
-<p><strong>Local Time:</strong> @Model.LocalTime</p>
-<p><strong>Zulu Time:</strong> @Model.ZuluTime</p>
-
-<h3>Briefing</h3>
-<p>@Model.Briefing</p>
-
-<h3>After Action Report</h3>
-<p>@Model.AfterActionReport</p>
-
-@* Maps Section *@
-@if (Model.PoliticalMap != null || Model.MilitaryMap != null || Model.PresidentRegionMap != null || Model.CountryMap != null ||
-     Model.RegionMap != null || Model.LocalMap != null || Model.CityMap != null ||
-     Model.UpdatedPoliticalMap != null || Model.UpdatedMilitaryMap != null || Model.UpdatedRegionMap != null)
-{
-    <h3>Maps</h3>
-    <div class="maps-container">
-        @if (Model.PoliticalMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)" alt="Political Map" style="max-width:200px;" />
-        }
-        @if (Model.MilitaryMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)" alt="Military Map" style="max-width:200px;" />
-        }
-        @if (Model.RegionMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)" alt="Region Map" style="max-width:200px;" />
-        }
-        @if (Model.CountryMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)" alt="Country Map" style="max-width:200px;" />
-        }
-        @if (Model.RegionMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)" alt="Second Region Map" style="max-width:200px;" />
-        }
-        @if (Model.LocalMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)" alt="Local Map" style="max-width:200px;" />
-        }
-        @if (Model.CityMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)" alt="City Map" style="max-width:200px;" />
-        }
-        @if (Model.UpdatedPoliticalMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)" alt="Updated Political Map" style="max-width:200px;" />
-        }
-        @if (Model.UpdatedMilitaryMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)" alt="Updated Military Map" style="max-width:200px;" />
-        }
-        @if (Model.UpdatedRegionMap != null)
-        {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)" alt="Updated Region Map" style="max-width:200px;" />
-        }
-    </div>
+@{
+    ViewBag.Title = "Article Details";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+    var isPrologue = ViewBag.SectionTitle == "Prologue"; // Dynamically check if the section is "Prologue"
 }
+
+<div class="container mt-4">
+
+    <!-- Time and Location -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @if (isPrologue)
+        {
+            <p><strong>Date:</strong> @Model.ZuluTime.ToString("MMMM dd, yyyy")</p>
+        }
+        else
+        {
+            <p>
+                <strong>Time:</strong>
+                @Model.ZuluTime.ToString("HH:mm") Zulu (@Model.LocalTime.ToString("HH:mm") Local)
+            </p>
+        }
+        <p><strong>Location:</strong> @Model.Location</p>
+    </div>
+
+    <!-- Political, Military, and President Region Maps -->
+    @if (Model.PoliticalMap != null || Model.MilitaryMap != null || Model.PresidentRegionMap != null)
+    {
+        <h3 class="mb-3 text-center">Situation Maps</h3>
+        <div class="mb-4" style="max-width: 900px; margin: 0 auto;">
+            <div class="d-flex justify-content-center align-items-center flex-wrap">
+                @if (Model.PoliticalMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)" data-lightbox="group1" data-title="Political Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)" alt="Political Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.MilitaryMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)" data-lightbox="group1" data-title="Military Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)" alt="Military Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.PresidentRegionMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)" data-lightbox="group1" data-title="President Region Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)" alt="President Region Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- Country, Region, City, and Local Maps -->
+    @if (Model.CountryMap != null || Model.RegionMap != null || Model.CityMap != null || Model.LocalMap != null)
+    {
+        <h3 class="mb-3 text-center">Geographical Maps</h3>
+        <div class="mb-4" style="max-width: 900px; margin: 0 auto;">
+            <div class="d-flex justify-content-center align-items-center flex-wrap">
+                @if (Model.CountryMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)" data-lightbox="group2" data-title="Country Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)" alt="Country Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.RegionMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)" data-lightbox="group2" data-title="Region Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)" alt="Region Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.CityMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)" data-lightbox="group2" data-title="City Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)" alt="City Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.LocalMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)" data-lightbox="group2" data-title="Local Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)" alt="Local Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- Briefing -->
+    <h3 class="mb-3 text-center">Briefing</h3>
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @Html.Raw(Model.Briefing)
+    </div>
+
+    <!-- Video -->
+    @if (!string.IsNullOrEmpty(Model.Video))
+    {
+        <h3 class="text-center">Video</h3>
+        <div class="mb-4 d-flex justify-content-center">
+            <iframe width="560" height="315" src="@Model.Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    }
+
+    <!-- Updated Maps -->
+    @if (Model.UpdatedPoliticalMap != null || Model.UpdatedMilitaryMap != null || Model.UpdatedRegionMap != null)
+    {
+        <h3 class="mb-3 text-center">Updated Situation Maps</h3>
+        <div class="mb-4" style="max-width: 900px; margin: 0 auto;">
+            <div class="d-flex justify-content-center align-items-center flex-wrap">
+                @if (Model.UpdatedPoliticalMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)" data-lightbox="group3" data-title="Updated Political Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)" alt="Updated Political Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.UpdatedMilitaryMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)" data-lightbox="group3" data-title="Updated Military Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)" alt="Updated Military Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.UpdatedRegionMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)" data-lightbox="group3" data-title="Updated Region Map">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)" alt="Updated Region Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    </a>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- After Action Report -->
+    <h3 class="text-center">After Action Report</h3>
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @Html.Raw(Model.AfterActionReport)
+    </div>
+
+    <!-- Edit and Delete Buttons (Visible only if signed in) -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="d-flex flex-column align-items-center mt-4" style="max-width: 300px; margin: 0 auto;">
+            @Html.ActionLink(
+                "Edit",
+                "Edit",
+                new { id = Model.GWOTArticleId },
+                new { @class = "btn custom-btn btn-lg mb-3 w-100" } // Wide button with margin
+            )
+            @Html.ActionLink(
+                "Delete",
+                "Delete",
+                new { id = Model.GWOTArticleId },
+                new { @class = "btn btn-danger btn-lg w-100" } // Wide button
+            )
+        </div>
+    }
+
+    <!-- Back to List Button (Always visible) -->
+    <div class="d-flex justify-content-center mt-4" style="max-width: 300px; margin: 0 auto;">
+        @Html.ActionLink(
+            "Back to List",
+            "Details",
+            "GWOTSections", // Replace with the correct controller if needed
+            new { id = Model.GWOTSectionId, area = "GWOT" }, // Update area if applicable
+            new { @class = "btn custom-btn btn-lg w-50" } // Centered and wide button
+        )
+    </div>
+
+
+</div>
+
+
