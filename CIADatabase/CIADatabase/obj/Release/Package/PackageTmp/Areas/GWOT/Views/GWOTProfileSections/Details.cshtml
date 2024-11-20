@@ -29,15 +29,30 @@
         <div class="row justify-content-center">
             @foreach (var profile in Model.Profiles.OrderBy(p => p.LastName))
             {
-            <div class="col-12 mb-3 text-center">
-                <!-- Display the article title as a button -->
-                    @Html.ActionLink(
-                        $"{profile.FirstName} \"{profile.Alias}\" {profile.LastName}",
-                        "Details",
-                        "GWOTProfiles",
-                        new { id = profile.ProfileId, area = "GWOT" },
-                        new { @class = "btn custom-btn w-75" })
-            </div>
+                @if (profile.Alias != null)
+                {
+                    <div class="col-12 mb-3 text-center">
+                        <!-- Display the article title as a button -->
+                        @Html.ActionLink(
+                            $"{profile.FirstName} \"{profile.Alias}\" {profile.LastName}",
+                            "Details",
+                            "GWOTProfiles",
+                            new { id = profile.ProfileId, area = "GWOT" },
+                            new { @class = "btn custom-btn w-75" })
+                    </div>
+                }
+                else
+                {
+                    <div class="col-12 mb-3 text-center">
+                        <!-- Display the article title as a button -->
+                        @Html.ActionLink(
+                            $"{profile.FirstName} {profile.LastName}",
+                            "Details",
+                            "GWOTProfiles",
+                            new { id = profile.ProfileId, area = "GWOT" },
+                            new { @class = "btn custom-btn w-75" })
+                    </div>
+                }
             }
         </div>
     </div>
