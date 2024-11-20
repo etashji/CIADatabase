@@ -22,20 +22,19 @@ namespace CIADatabase.Areas.GWOT.Models
 
         [MinLength(2)]  // Minimum length of 2 for First Name
         [MaxLength(25)]  // Maximum length of 25 for First Name
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "First Name must only contain letters and spaces.")]
-
+        [RegularExpression(@"^[a-zA-Z\s\-]+$", ErrorMessage = "First Name must only contain letters, spaces, and hyphens.")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [MinLength(2)]  // Minimum length of 2 for Last Name
         [MaxLength(25)]  // Maximum length of 25 for Last Name
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Last Name must only contain letters and spaces.")]
+        [RegularExpression(@"^[a-zA-Z\s\-]+$", ErrorMessage = "First Name must only contain letters, spaces, and hyphens.")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [MinLength(2)]  // Minimum length of 2 for Last Name
         [MaxLength(25)]  // Maximum length of 25 for Last Name
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Alias must only contain letters.")]
+        [RegularExpression(@"^[a-zA-Z\s\-]+$", ErrorMessage = "First Name must only contain letters, spaces, and hyphens.")]
         public string Alias { get; set; }
 
         [AllowHtml]
