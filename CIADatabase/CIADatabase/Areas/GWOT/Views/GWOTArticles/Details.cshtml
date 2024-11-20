@@ -25,31 +25,48 @@
         {
             <p><strong>Location:</strong> @Model.Location</p>
         }
-
     </div>
 
     <!-- Political, Military, and President Region Maps -->
     @if (Model.PoliticalMap != null || Model.MilitaryMap != null || Model.PresidentRegionMap != null)
     {
         <h3 class="mb-3 text-center">Situation Maps</h3>
-        <div class="mb-4" style="max-width: 900px; margin: 0 auto;">
-            <div class="d-flex justify-content-center align-items-center flex-wrap">
+        <div class="gallery-container mb-4 text-center" style="max-width: 900px; margin: 0 auto;">
+            <div class="gallery d-flex justify-content-center align-items-center">
                 @if (Model.PoliticalMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)" data-lightbox="group1" data-title="Political Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)" alt="Political Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)"
+                       data-lightbox="situation-maps"
+                       data-title="Political Map"
+                       class="gallery-item active-slide" style="display: block;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.PoliticalMap)"
+                             alt="Political Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
                 @if (Model.MilitaryMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)" data-lightbox="group1" data-title="Military Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)" alt="Military Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)"
+                       data-lightbox="situation-maps"
+                       data-title="Military Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.MilitaryMap)"
+                             alt="Military Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
                 @if (Model.PresidentRegionMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)" data-lightbox="group1" data-title="President Region Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)" alt="President Region Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)"
+                       data-lightbox="situation-maps"
+                       data-title="President Region Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.PresidentRegionMap)"
+                             alt="President Region Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
             </div>
@@ -60,30 +77,100 @@
     @if (Model.CountryMap != null || Model.RegionMap != null || Model.CityMap != null || Model.LocalMap != null)
     {
         <h3 class="mb-3 text-center">Geographical Maps</h3>
-        <div class="mb-4" style="max-width: 900px; margin: 0 auto;">
-            <div class="d-flex justify-content-center align-items-center flex-wrap">
+        <div class="gallery-container mb-4 text-center" style="max-width: 900px; margin: 0 auto;">
+            <div class="gallery d-flex justify-content-center align-items-center">
                 @if (Model.CountryMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)" data-lightbox="group2" data-title="Country Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)" alt="Country Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)"
+                       data-lightbox="geographical-maps"
+                       data-title="Country Map"
+                       class="gallery-item active-slide" style="display: block;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.CountryMap)"
+                             alt="Country Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
                 @if (Model.RegionMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)" data-lightbox="group2" data-title="Region Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)" alt="Region Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)"
+                       data-lightbox="geographical-maps"
+                       data-title="Region Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.RegionMap)"
+                             alt="Region Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
                 @if (Model.CityMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)" data-lightbox="group2" data-title="City Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)" alt="City Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)"
+                       data-lightbox="geographical-maps"
+                       data-title="City Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.CityMap)"
+                             alt="City Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
                 @if (Model.LocalMap != null)
                 {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)" data-lightbox="group2" data-title="Local Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)" alt="Local Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)"
+                       data-lightbox="geographical-maps"
+                       data-title="Local Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocalMap)"
+                             alt="Local Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
+                    </a>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- Updated Maps -->
+    @if (Model.UpdatedPoliticalMap != null || Model.UpdatedMilitaryMap != null || Model.UpdatedRegionMap != null)
+    {
+        <h3 class="mb-3 text-center">Updated Situation Maps</h3>
+        <div class="gallery-container mb-4 text-center" style="max-width: 900px; margin: 0 auto;">
+            <div class="gallery d-flex justify-content-center align-items-center">
+                @if (Model.UpdatedPoliticalMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)"
+                       data-lightbox="updated-maps"
+                       data-title="Updated Political Map"
+                       class="gallery-item active-slide" style="display: block;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)"
+                             alt="Updated Political Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.UpdatedMilitaryMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)"
+                       data-lightbox="updated-maps"
+                       data-title="Updated Military Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)"
+                             alt="Updated Military Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
+                    </a>
+                }
+                @if (Model.UpdatedRegionMap != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)"
+                       data-lightbox="updated-maps"
+                       data-title="Updated Region Map"
+                       class="gallery-item" style="display: none;">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)"
+                             alt="Updated Region Map"
+                             class="img-thumbnail"
+                             style="max-width: 900px;" />
                     </a>
                 }
             </div>
@@ -105,71 +192,41 @@
         </div>
     }
 
-    <!-- Updated Maps -->
-    @if (Model.UpdatedPoliticalMap != null || Model.UpdatedMilitaryMap != null || Model.UpdatedRegionMap != null)
+    <!-- After Action Report -->
+    @if (Model.AfterActionReport != null)
     {
-        <h3 class="mb-3 text-center">Updated Situation Maps</h3>
-        <div class="mb-4" style="max-width: 900px; margin: 0 auto;">
-            <div class="d-flex justify-content-center align-items-center flex-wrap">
-                @if (Model.UpdatedPoliticalMap != null)
-                {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)" data-lightbox="group3" data-title="Updated Political Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedPoliticalMap)" alt="Updated Political Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
-                    </a>
-                }
-                @if (Model.UpdatedMilitaryMap != null)
-                {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)" data-lightbox="group3" data-title="Updated Military Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedMilitaryMap)" alt="Updated Military Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
-                    </a>
-                }
-                @if (Model.UpdatedRegionMap != null)
-                {
-                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)" data-lightbox="group3" data-title="Updated Region Map">
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.UpdatedRegionMap)" alt="Updated Region Map" class="img-thumbnail m-2" style="width: 100%; max-width: 900px;" />
-                    </a>
-                }
-            </div>
+        <h3 class="text-center">After Action Report</h3>
+        <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+            @Html.Raw(Model.AfterActionReport)
         </div>
     }
 
-    <!-- After Action Report -->
-    <h3 class="text-center">After Action Report</h3>
-    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
-        @Html.Raw(Model.AfterActionReport)
-    </div>
-
-    <!-- Edit and Delete Buttons (Visible only if signed in) -->
+    <!-- Edit and Delete Buttons -->
     @if (User.Identity.IsAuthenticated)
     {
         <div class="d-flex flex-column align-items-center mt-4" style="max-width: 300px; margin: 0 auto;">
-            @Html.ActionLink(
-                "Edit",
-                "Edit",
-                new { id = Model.GWOTArticleId },
-                new { @class = "btn custom-btn btn-lg mb-3 w-100" } // Wide button with margin
-            )
-            @Html.ActionLink(
-                "Delete",
-                "Delete",
-                new { id = Model.GWOTArticleId },
-                new { @class = "btn btn-danger btn-lg w-100" } // Wide button
-            )
+            @Html.ActionLink("Edit", "Edit", new { id = Model.GWOTArticleId }, new { @class = "btn custom-btn btn-lg mb-3 w-100" })
+            @Html.ActionLink("Delete", "Delete", new { id = Model.GWOTArticleId }, new { @class = "btn btn-danger btn-lg w-100" })
         </div>
     }
 
-    <!-- Back to List Button (Always visible) -->
+    <!-- Back to List Button -->
     <div class="d-flex justify-content-center mt-4" style="max-width: 300px; margin: 0 auto;">
-        @Html.ActionLink(
-            "Back to List",
-            "Details",
-            "GWOTSections", // Replace with the correct controller if needed
-            new { id = Model.GWOTSectionId, area = "GWOT" }, // Update area if applicable
-            new { @class = "btn custom-btn btn-lg w-50" } // Centered and wide button
-        )
+        @Html.ActionLink("Back to List", "Details", "GWOTSections", new { id = Model.GWOTSectionId, area = "GWOT" }, new { @class = "btn custom-btn btn-lg w-50" })
     </div>
-
 
 </div>
 
-
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof lightbox !== 'undefined') {
+                lightbox.option({
+                    resizeDuration: 200,
+                    wrapAround: true,
+                    alwaysShowNavOnTouchDevices: true
+                });
+            }
+        });
+    </script>
+}
