@@ -34,7 +34,7 @@
                     @if (Model.Title == "Prologue")
                     {
                         @Html.ActionLink(
-                            article.ZuluTime.ToString("MMMM yyyy"),
+                            article.ZuluTime.ToString("MMMM dd yyyy"),
                             "Details",
                             "GWOTArticles",
                             new { id = article.GWOTArticleId, area = "GWOT" },
