@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main class="container">
+    <div class="row justify-content-center">
+        <!-- Left Column -->
+        <div class="col-md-3">
+            <!-- Placeholder for future content or can be left empty -->
+        </div>
+
+        <!-- Center Column -->
+        <div class="col-md-6 d-flex justify-content-center">
+            <!-- Bootstrap Card -->
+            <div class="card" style="width: 18rem;">
+                <img src="~/Content/Images/GWOT.jpg" class="card-img-top" alt="GWOT Section Image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Global War on Terror</h5>
+                    <p class="card-text">After the fall of the Soviet Union, the United States entered into a global war against 
+                    international terrorism.</p>
+                    <a href="@Url.Action("GWOT", "GWOTSections", new { area = "GWOT" })" class="btn custom-btn">View</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-3">
+            <!-- Placeholder for future content or can be left empty -->
+        </div>
+    </div>
+</main>

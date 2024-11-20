@@ -23,7 +23,6 @@ namespace CIADatabase.Areas.GWOT.Models
         public DateTime ZuluTime { get; set; } = new DateTime(1753, 1, 1);
 
         // Location of the event
-        [Required]
         [StringLength(200)]
         public string Location { get; set; }
 

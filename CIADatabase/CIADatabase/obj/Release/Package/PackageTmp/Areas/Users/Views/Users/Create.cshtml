@@ -1,0 +1,93 @@
+﻿@model CIADatabase.Areas.Users.Models.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex flex-column align-items-center mt-5">
+    <h2 class="text-center mb-4">Create User</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal w-100" style="max-width: 600px;">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+            <!-- First Name -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control form-control-lg text-center" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control form-control-lg text-center" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control form-control-lg text-center" } })
+                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-lg text-center" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Username -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control form-control-lg text-center" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.Password, "Password", htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-lg text-center" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group mb-4 text-center">
+                @Html.LabelFor(model => model.ConfirmPassword, "Confirm Password", htmlAttributes: new { @class = "control-label mb-2 d-block" })
+                <div>
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control form-control-lg text-center" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group text-center mt-4">
+                <input type="submit" value="Create" class="btn custom-btn btn-lg w-75" />
+            </div>
+        </div>
+    }
+
+    <!-- Back to List Button -->
+    <div class="form-group text-center mt-4">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn custom-btn btn-lg w-100" })
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CIADatabase.Areas.GWOT.Models.GWOTProfileSections>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Profiles</h2>
+
+@if (Request.IsAuthenticated)
+{
+    <div class="text-center mb-4">
+        @Html.ActionLink("Add Section", "Create", null, new { @class = "btn custom-btn" })
+    </div>
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 text-center mb-3">
+                <!-- Button styled link for section title -->
+                @Html.ActionLink(item.Title, "Details", new { id = item.SectionId }, new { @class = "btn custom-btn w-75" })
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CIADatabase.Areas.Users.Models.User>
+
+@{
+    ViewBag.Title = "User List";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex flex-column align-items-center mt-4">
+    <h2 class="text-center mb-4">User List</h2>
+
+    <!-- Create New Button -->
+    <p class="w-100 text-center">
+        @Html.ActionLink("Add User", "Create", "Users", new { area = "Users" }, new { @class = "btn custom-btn btn-block mb-4" })
+    </p>
+
+    <!-- User List -->
+    <div class="w-100">
+        @foreach (var user in Model)
+        {
+            <div class="d-flex justify-content-center mb-3">
+                <!-- Button centered and spanning the width of the page with the username -->
+                @Html.ActionLink(user.Username, "Details", "Users", new { id = user.UserId, area = "Users" }, new { @class = "btn custom-btn w-75 text-center" })
+            </div>
+        }
+    </div>
+</div>

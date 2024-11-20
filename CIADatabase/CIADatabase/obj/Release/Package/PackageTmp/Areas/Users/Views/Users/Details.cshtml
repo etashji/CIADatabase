@@ -1,0 +1,39 @@
+﻿@model CIADatabase.Areas.Users.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex flex-column align-items-center mt-5">
+    <!-- Centered User Title -->
+    <h2 class="text-center mb-4">@Html.DisplayFor(model => model.Username)</h2>
+
+    <!-- User Details Section -->
+    <div class="w-100" style="max-width: 400px;">
+        <hr />
+        <dl class="text-center">
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.FirstName)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.FirstName)</dd>
+
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.LastName)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.LastName)</dd>
+
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.Age)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.Age)</dd>
+
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.Email)</dd>
+
+            <dt class="font-weight-bold">@Html.DisplayNameFor(model => model.Username)</dt>
+            <dd class="mb-3">@Html.DisplayFor(model => model.Username)</dd>
+        </dl>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-4 w-100 d-flex flex-column align-items-center">
+        @Html.ActionLink("Change Password", "Edit", new { id = Model.UserId }, new { @class = "btn custom-btn btn-lg mb-3 w-25" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.UserId }, new { @class = "btn btn-danger btn-lg mb-3 w-25" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn custom-btn btn-lg w-25" })
+    </div>
+</div>

@@ -1,0 +1,211 @@
+﻿@model CIADatabase.Areas.GWOT.Models.GWOTArticle
+
+@{
+    ViewBag.Title = "Create Article";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+    var isPrologue = ViewBag.SectionTitle == "Prologue"; // Dynamically check if the section is "Prologue"
+}
+
+<div class="d-flex flex-column align-items-stretch mt-5">
+    <div class="text-center">
+        <h2 class="text-center mb-4">Add Entry</h2>
+    </div>
+
+    @using (Html.BeginForm("Create", "GWOTArticles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal w-100" style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <h4 class="text-center mb-4">@ViewBag.SectionTitle</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+        <input type="hidden" name="ProfileSectionId" value="@ViewBag.SectionId" />
+
+        <!--Zulu Time-->
+        <div class="form-group mb-4">
+            @if (isPrologue)
+            {
+                <label class="control-label mb-2 d-block text-center">Date</label>
+            }
+            else
+            {
+                @Html.LabelFor(model => model.ZuluTime, htmlAttributes: new { @class = "control-label mb-2 d-block text-center" })
+            }
+            <div class="d-flex justify-content-center">
+                @if (isPrologue)
+                {
+                    <input type="date" name="ZuluTime" class="form-control form-control-lg text-center" style="max-width: 400px;" />
+                }
+                else
+                {
+                    <input type="time" name="ZuluTime" class="form-control form-control-lg text-center" style="max-width: 400px;" />
+                }
+            </div>
+        </div>
+
+        <!-- Local Time -->
+        @if (!isPrologue)
+        {
+            <div class="form-group mb-4">
+                @Html.LabelFor(model => model.LocalTime, htmlAttributes: new { @class = "control-label mb-2 d-block text-center" })
+                <div class="d-flex justify-content-center">
+                    <input type="time" name="LocalTime" class="form-control form-control-lg text-center" style="max-width: 400px;" />
+                </div>
+            </div>
+        }
+
+
+        <!-- Location -->
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label mb-2 d-block text-center" })
+            <div class="d-flex justify-content-center">
+                @Html.TextBoxFor(model => model.Location, new { @class = "form-control form-control-lg text-center", style = "max-width: 400px;" })
+            </div>
+        </div>
+
+        <!-- File Uploads -->
+        <div class="form-group mb-4">
+            <label for="PoliticalMap" class="control-label mb-2 d-block text-center">Political Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="PoliticalMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="MilitaryMap" class="control-label mb-2 d-block text-center">Military Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="MilitaryMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="PresidentRegionMap" class="control-label mb-2 d-block text-center">President Region Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="PresidentRegionMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="CountryMap" class="control-label mb-2 d-block text-center">Country Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="CountryMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="RegionMap" class="control-label mb-2 d-block text-center">Region Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="RegionMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="CityMap" class="control-label mb-2 d-block text-center">City Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="CityMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="LocalMap" class="control-label mb-2 d-block text-center">Local Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="LocalMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+
+        <!-- Briefing -->
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.Briefing, htmlAttributes: new { @class = "control-label mb-2 d-block text-center" })
+            <div id="BriefingEditor" style="height: 300px; width: 100%; max-width: 1000px; margin: 0 auto; background-color: white; border: 1px solid #ccc;"></div>
+            <input type="hidden" name="Briefing" id="BriefingInput" />
+        </div>
+
+        <!-- Video -->
+        <div class="form-group mb-4">
+            <label for="Video" class="control-label mb-2 d-block text-center">Video</label>
+            <div class="d-flex justify-content-center">
+                <input type="text" name="Video" class="form-control text-center" placeholder="Enter YouTube URL" style="max-width: 400px;" />
+            </div>
+        </div>
+
+        <!-- Updated Maps -->
+        <div class="form-group mb-4">
+            <label for="UpdatedPoliticalMap" class="control-label mb-2 d-block text-center">Updated Political Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="UpdatedPoliticalMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="UpdatedMilitaryMap" class="control-label mb-2 d-block text-center">Updated Military Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="UpdatedMilitaryMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <label for="UpdatedRegionMap" class="control-label mb-2 d-block text-center">Updated Region Map</label>
+            <div class="d-flex justify-content-center">
+                <input type="file" name="UpdatedRegionMap" class="form-control" style="max-width: 400px;" />
+            </div>
+        </div>
+
+        <!-- After Action Report -->
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.AfterActionReport, htmlAttributes: new { @class = "control-label mb-2 d-block text-center" })
+            <div id="AfterActionReportEditor" style="height: 300px; width: 100%; max-width: 1000px; margin: 0 auto; background-color: white; border: 1px solid #ccc;"></div>
+            <input type="hidden" name="AfterActionReport" id="AfterActionReportInput" />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group text-center mt-4">
+            <button type="submit" class="btn custom-btn btn-lg w-50">Save Article</button>
+        </div>
+    </div>
+    }
+
+    <!-- Back to Details Button -->
+    <div class="form-group text-center mt-4">
+        @Html.ActionLink(
+            "Back to List",
+            "Details",
+            "GWOTSections",
+            new { id = ViewBag.SectionId },
+            new { @class = "btn custom-btn btn-lg w-25" }
+        )
+    </div>
+</div>
+
+<script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+<script>
+    // Initialize Quill for Briefing
+    var briefingEditor = new Quill('#BriefingEditor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link'],
+                [{ 'align': [] }],
+                ['clean']
+            ]
+        }
+    });
+
+    // Sync Briefing content with hidden input field
+    briefingEditor.on('text-change', function () {
+        document.querySelector('#BriefingInput').value = briefingEditor.root.innerHTML;
+    });
+
+    // Initialize Quill for After Action Report
+    var afterActionEditor = new Quill('#AfterActionReportEditor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link'],
+                [{ 'align': [] }],
+                ['clean']
+            ]
+        }
+    });
+
+    // Sync After Action Report content with hidden input field
+    afterActionEditor.on('text-change', function () {
+        document.querySelector('#AfterActionReportInput').value = afterActionEditor.root.innerHTML;
+    });
+</script>

@@ -1,0 +1,63 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Enable dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Optional: Adjusts alignment */
+}
+
+.nav-item.dropdown > .dropdown-menu {
+    pointer-events: auto;
+}
+
+.navbar {
+    background-color: #002B7F; /* Deep Blue navbar */
+    color: #FFFFFF; /* White text */
+}
+
+.custom-btn {
+    background-color: #002B7F; /* Red buttons */
+    border-color: #002B7F;
+    color: #FFFFFF; /* White text */
+}
+
+.custom-btn:hover {
+    background-color: #0056B3; /* Light Blue on hover */
+    border-color: #0056B3;
+    color: #FFFFFF;
+}
+
+#BriefingEditor .ql-container,
+#AfterActionReportEditor .ql-container {
+    width: 100% !important;
+    max-width: 800px !important; /* Adjust as needed */
+    margin: 0 auto !important;
+}
+
+#BriefingEditor .ql-editor,
+#AfterActionReportEditor .ql-editor {
+    width: 100% !important;
+    max-width: 800px !important; /* Adjust as needed */
+    min-height: 300px !important; /* Ensure consistent height */
+    margin: 0 auto !important;
+    box-sizing: border-box !important; /* Prevent overflow issues */
+}

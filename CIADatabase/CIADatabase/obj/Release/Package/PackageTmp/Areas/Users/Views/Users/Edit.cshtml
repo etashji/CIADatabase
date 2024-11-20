@@ -1,0 +1,45 @@
+﻿@model CIADatabase.Areas.Users.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center mb-4">@Model.Username</h2>
+
+<div class="d-flex justify-content-center">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal text-center">
+            <h4 class="text-center">Change Password</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+            @Html.HiddenFor(model => model.UserId)
+
+            <div class="form-group text-center">
+                @Html.LabelFor(model => model.Password, "New Password", new { @class = "control-label mb-2" })
+                <div class="d-flex justify-content-center">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control text-center", style = "max-width: 300px; background-color: white;" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-center mt-3">
+                @Html.LabelFor(model => model.ConfirmPassword, "Confirm New Password", new { @class = "control-label mb-2" })
+                <div class="d-flex justify-content-center">
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control text-center", style = "max-width: 300px; background-color: white;" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-center mt-4">
+                <button type="submit" class="btn custom-btn btn-lg w-100" style="max-width: 300px;">Save</button>
+                <div class="mt-2">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn custom-btn btn-lg w-100", style = "max-width: 300px;" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
