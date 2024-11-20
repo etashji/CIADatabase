@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202411200154104_Location.designer.cs">
       <DependentUpon>202411200154104_Location.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411200208566_AAR.cs" />
+    <Compile Include="Migrations\202411200208566_AAR.designer.cs">
+      <DependentUpon>202411200208566_AAR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -358,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411200154104_Location.resx">
       <DependentUpon>202411200154104_Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200208566_AAR.resx">
+      <DependentUpon>202411200208566_AAR.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
