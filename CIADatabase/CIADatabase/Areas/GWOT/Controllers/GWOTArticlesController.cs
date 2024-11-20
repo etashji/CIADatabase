@@ -171,7 +171,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
                 }
 
                 // Attach the article to its section
-                var section = db.GWOTSections.Include(s => s.Articles).SingleOrDefault(s => s.SectionId == article.GWOTSectionId);
+                var section = db.GWOTSections.Find(article.GWOTSectionId);
                 if (section == null)
                 {
                     return HttpNotFound("Section not found");

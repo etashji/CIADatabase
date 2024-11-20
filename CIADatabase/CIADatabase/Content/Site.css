@@ -61,3 +61,68 @@ textarea {
     margin: 0 auto !important;
     box-sizing: border-box !important; /* Prevent overflow issues */
 }
+
+/* Gallery Container */
+.gallery-container {
+    text-align: center;
+}
+
+
+.gallery-item {
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* Navigation Buttons */
+.gallery-container .prev,
+.gallery-container .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.gallery-container .prev {
+    left: 0;
+}
+
+.gallery-container .next {
+    right: 0;
+}
+
+.gallery-item.active-slide img {
+    outline: none;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    z-index: 10;
+}
+
+.prev {
+    left: -60px; /* Moves button to the left of the image area */
+}
+
+.next {
+    right: -60px; /* Moves button to the right of the image area */
+}
+
+.prev:disabled,
+.next:disabled {
+    display: none;
+}
