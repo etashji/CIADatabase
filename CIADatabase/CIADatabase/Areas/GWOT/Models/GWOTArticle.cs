@@ -50,7 +50,6 @@ namespace CIADatabase.Areas.GWOT.Models
         public byte[] UpdatedRegionMap { get; set; }
 
         [AllowHtml]
-        [Required]
         [Column(TypeName = "ntext")]
         [MinLength(10, ErrorMessage = "The video link must be at least 10 characters long.")]
         [Display(Name = "After Action Report")]
