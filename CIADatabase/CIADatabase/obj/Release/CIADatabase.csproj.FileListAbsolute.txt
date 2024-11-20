@@ -105,3 +105,4 @@ C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\ob
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Release\CIADatabase.dll
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Release\CIADatabase.pdb
 C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Release\CIADatabase.Migrations.Location.resources
+C:\Users\etash\Documents\ClonedRepository\CIADatabase\CIADatabase\CIADatabase\obj\Release\CIADatabase.Migrations.AAR.resources
