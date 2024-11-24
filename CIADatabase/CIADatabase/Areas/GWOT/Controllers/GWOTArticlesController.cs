@@ -25,15 +25,33 @@ namespace CIADatabase.Areas.GWOT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             GWOTArticle gWOTArticle = db.GWOTArticles.Find(id);
             if (gWOTArticle == null)
             {
                 return HttpNotFound();
             }
+
+            // Retrieve section details
             var section = db.GWOTSections.Find(gWOTArticle.GWOTSectionId);
-            ViewBag.SectionTitle = section.Title;
+            ViewBag.SectionTitle = section?.Title;
+
+            // Fetch all articles in the same section, ordered by ID
+            var articlesInSection = db.GWOTArticles
+                .Where(a => a.GWOTSectionId == gWOTArticle.GWOTSectionId)
+                .OrderBy(a => a.GWOTArticleId)
+                .ToList();
+
+            // Find the index of the current article
+            var currentIndex = articlesInSection.IndexOf(gWOTArticle);
+
+            // Determine previous and next articles
+            ViewBag.PreviousArticle = currentIndex > 0 ? articlesInSection[currentIndex - 1] : null;
+            ViewBag.NextArticle = currentIndex < articlesInSection.Count - 1 ? articlesInSection[currentIndex + 1] : null;
+
             return View(gWOTArticle);
         }
+
 
         // GET: GWOT/GWOTArticles/Create
         // GET: Articles/Create

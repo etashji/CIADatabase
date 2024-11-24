@@ -213,6 +213,26 @@
         @Html.ActionLink("Back to List", "Details", "GWOTSections", new { id = Model.GWOTSectionId, area = "GWOT" }, new { @class = "btn custom-btn btn-lg w-50" })
     </div>
 
+    <div class="d-flex justify-content-between mt-4">
+        @if (ViewBag.PreviousArticle != null)
+        {
+            <a href="@Url.Action("Details", "GWOTArticles", new { id = ViewBag.PreviousArticle.GWOTArticleId })" class="btn custom-btn">
+                &#10094; Previous
+            </a>
+        }
+        else
+        {
+            <div></div> <!-- Placeholder to keep Next button on the right -->
+        }
+        @if (ViewBag.NextArticle != null)
+        {
+            <a href="@Url.Action("Details", "GWOTArticles", new { id = ViewBag.NextArticle.GWOTArticleId })" class="btn custom-btn">
+                Next &#10095;
+            </a>
+        }
+    </div>
+
+
 </div>
 
 @section Scripts {
