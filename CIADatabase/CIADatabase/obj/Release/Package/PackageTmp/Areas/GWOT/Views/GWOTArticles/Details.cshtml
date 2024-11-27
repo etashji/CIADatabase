@@ -73,6 +73,7 @@
         </div>
     }
 
+
     <!-- Country, Region, City, and Local Maps -->
     @if (Model.CountryMap != null || Model.RegionMap != null || Model.CityMap != null || Model.LocalMap != null)
     {
@@ -238,12 +239,35 @@
 @section Scripts {
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const galleries = document.querySelectorAll('.gallery-container');
+
+            galleries.forEach(gallery => {
+                const images = gallery.querySelectorAll('.gallery-item');
+
+                // If only one image is present, ensure it's always visible
+                if (images.length === 1) {
+                    images[0].style.display = 'block'; // Ensure the single image is visible
+                } else {
+                    images.forEach(image => {
+                        image.style.display = 'none'; // Hide all images by default
+                    });
+
+                    // Show the first image
+                    if (images.length > 0) {
+                        images[0].style.display = 'block';
+                    }
+                }
+            });
+
             if (typeof lightbox !== 'undefined') {
                 lightbox.option({
                     resizeDuration: 200,
                     wrapAround: true,
                     alwaysShowNavOnTouchDevices: true
                 });
+                console.log('Lightbox initialized successfully.');
+            } else {
+                console.error('Lightbox.js is not loaded.');
             }
         });
     </script>
