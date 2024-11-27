@@ -84,7 +84,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         [ValidateInput(false)]
         [Authorize]
         public ActionResult Create(
-        [Bind(Include = "ArticleId,Briefing,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId")] GWOTArticle article,
+        [Bind(Include = "ArticleId,Briefing,Video,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId")] GWOTArticle article,
              HttpPostedFileBase PoliticalMap,
              HttpPostedFileBase MilitaryMap,
              HttpPostedFileBase PresidentRegionMap,
@@ -267,6 +267,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
                 existingArticle.LocalTime = article.LocalTime;
                 existingArticle.ZuluTime = article.ZuluTime;
                 existingArticle.Location = article.Location;
+                existingArticle.Video = article.Video;  
 
                 // Helper function to update file fields
                 byte[] UpdateFile(HttpPostedFileBase file, byte[] existingFile)
