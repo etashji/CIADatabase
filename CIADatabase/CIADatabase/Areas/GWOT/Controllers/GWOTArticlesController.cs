@@ -240,7 +240,7 @@ namespace CIADatabase.Areas.GWOT.Controllers
         [ValidateInput(false)]
         [Authorize]
         public ActionResult Edit(
-        [Bind(Include = "ArticleId,Briefing,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId,GWOTArticleId")] GWOTArticle article,
+        [Bind(Include = "ArticleId,Briefing,Video,AfterActionReport,LocalTime,ZuluTime,Location,GWOTSectionId,GWOTArticleId")] GWOTArticle article,
             HttpPostedFileBase PoliticalMap,
             HttpPostedFileBase MilitaryMap,
             HttpPostedFileBase PresidentRegionMap,
