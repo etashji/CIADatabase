@@ -132,6 +132,20 @@
         </div>
     }
 
+    <!-- Briefing -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @Html.Raw(Model.Briefing)
+    </div>
+
+    <!-- Video -->
+    @if (!string.IsNullOrEmpty(Model.Video))
+    {
+        <h3 class="text-center">Video</h3>
+        <div class="mb-4 d-flex justify-content-center">
+            <iframe width="560" height="315" src="@Model.Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    }
+
     <!-- Updated Maps -->
     @if (Model.UpdatedPoliticalMap != null || Model.UpdatedMilitaryMap != null || Model.UpdatedRegionMap != null)
     {
@@ -175,20 +189,6 @@
                     </a>
                 }
             </div>
-        </div>
-    }
-
-    <!-- Briefing -->
-    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
-        @Html.Raw(Model.Briefing)
-    </div>
-
-    <!-- Video -->
-    @if (!string.IsNullOrEmpty(Model.Video))
-    {
-        <h3 class="text-center">Video</h3>
-        <div class="mb-4 d-flex justify-content-center">
-            <iframe width="560" height="315" src="@Model.Video" frameborder="0" allowfullscreen></iframe>
         </div>
     }
 
