@@ -1,0 +1,69 @@
+﻿@model CIADatabase.Areas.JediArchives.Models.JediProfile
+
+@{
+    ViewBag.Title = "Jedi Profile Details";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <!-- Profile Picture -->
+    @if (Model.ProfilePic != null)
+    {
+        <div class="mb-4 text-center">
+            <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProfilePic)"
+                 alt="Profile Picture"
+                 class="img-thumbnail"
+                 style="width: 400px; height: 500px; max-height: 500px; border-radius: 10px;" />
+        </div>
+    }
+
+    <!-- Name and Alias -->
+    <div class="text-center mb-4">
+
+        @if (!string.IsNullOrEmpty(Model.Alias))
+        {
+            <h2>@Model.FirstName "@Model.Alias" @Model.LastName</h2>
+        }
+        else
+        {
+            <h2>@Model.FirstName @Model.LastName</h2>
+        }
+
+    </div>
+
+    <!-- Profile Description -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @Html.Raw(Model.Profile)
+    </div>
+
+    <!-- Edit and Delete Buttons (Visible only if signed in) -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="d-flex flex-column align-items-center mt-4" style="max-width: 300px; margin: 0 auto;">
+            @Html.ActionLink(
+                          "Edit",
+                          "Edit",
+                          new { id = Model.ProfileId },
+                          new { @class = "btn jedi-btn btn-lg mb-3 w-100" }
+                      )
+            @Html.ActionLink(
+                          "Delete",
+                          "Delete",
+                          new { id = Model.ProfileId },
+                          new { @class = "btn jedi-btn btn-lg mb-3 w-100" }
+                      )
+        </div>
+    }
+
+    <!-- Back to List Button (Always visible) -->
+    <div class="d-flex justify-content-center mt-4" style="max-width: 300px; margin: 0 auto;">
+        @Html.ActionLink(
+                 "Back to List",
+                 "Details",
+                 "JediProfileSections",
+                 new { id = Model.ProfileSectionId, area = "JediArchives" },
+                 new { @class = "btn jedi-btn btn-lg mb-3 w-100" }
+             )
+    </div>
+</div>

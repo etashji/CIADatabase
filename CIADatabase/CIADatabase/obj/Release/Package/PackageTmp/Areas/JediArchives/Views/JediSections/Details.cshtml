@@ -1,0 +1,58 @@
+﻿@model CIADatabase.Areas.JediArchives.JediSection
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">@Html.DisplayFor(model => model.Title)</h2>
+
+
+@if (Request.IsAuthenticated)
+{
+    <!-- Edit, Delete, and Create Article Buttons -->
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center">
+            <!-- Edit Section Button -->
+            @Html.ActionLink("Change Title", "Edit", "JediSections", new { id = Model.SectionId }, new { @class = "btn btn-glow mx-2" })
+
+            <!-- Delete Section Button -->
+            @Html.ActionLink("Delete", "Delete", "JediSections", new { id = Model.SectionId }, new { @class = "btn btn-glow delete-btn mx-2" })
+
+            <!-- Create New Article Button -->
+            @Html.ActionLink("Add Entry", "Create", "JediArticles", new { sectionId = Model.SectionId }, new { @class = "btn btn-glow create-article-btn mx-2" })
+        </div>
+    </div>
+}
+
+<!-- Display all articles that belong to this section -->
+<div class="row mt-4">
+    <div class="col-12">
+        <h4 class="section-title">Entries in this Section</h4>
+        <hr />
+    </div>
+
+    @if (Model.Articles != null && Model.Articles.Any())
+    {
+        foreach (var article in Model.Articles)
+        {
+            <div class="col-12 mb-3 d-flex justify-content-center">
+                <!-- Button for each JediArticle entry -->
+                @Html.ActionLink(article.Title, "Details", "JediArticles", new { id = article.JediArticleId }, new { @class = "btn jedi-btn two-thirds-width" })
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12 text-center">
+            <p class="no-entries-message">There are no entries in this section yet.</p>
+        </div>
+    }
+</div>
+
+<!-- Back to List Button -->
+<div class="row mt-4">
+    <div class="col-12 d-flex justify-content-center">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-glow mb-4" })
+    </div>
+</div>

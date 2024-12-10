@@ -1,0 +1,197 @@
+﻿@model CIADatabase.Areas.JediArchives.Models.JediArticle
+
+@{
+    ViewBag.Title = "Article Details";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <!-- Title -->
+    <h2 class="text-center mb-4">@Model.Title</h2>
+
+    <!-- Planet and Location -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @if (Model.Planet != null && Model.Location != null)
+        {
+            <p>
+                @Model.Planet: @Model.Location
+            </p>
+        }
+    </div>
+
+    @if (Model.Starmap1 != null || Model.Starmap2 != null || Model.Starmap3 != null)
+    {
+        <div class="gallery-container mb-4 text-center" style="max-width: 900px; margin: 0 auto;">
+            <div class="gallery d-flex justify-content-center align-items-center">
+                @if (Model.Starmap1 != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.Starmap1)"
+                       data-lightbox="starmaps"
+                       data-title="Starmap 1"
+                       class="gallery-item">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.Starmap1)"
+                             alt="Starmap 1"
+                             class="img-thumbnail"
+                             style="max-width: 400px;" />
+                    </a>
+                }
+                @if (Model.Starmap2 != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.Starmap2)"
+                       data-lightbox="starmaps"
+                       data-title="Starmap 2"
+                       class="gallery-item">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.Starmap2)"
+                             alt="Starmap 2"
+                             class="img-thumbnail"
+                             style="max-width: 400px;" />
+                    </a>
+                }
+                @if (Model.Starmap3 != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.Starmap3)"
+                       data-lightbox="starmaps"
+                       data-title="Starmap 3"
+                       class="gallery-item">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.Starmap3)"
+                             alt="Starmap 3"
+                             class="img-thumbnail"
+                             style="max-width: 400px;" />
+                    </a>
+                }
+            </div>
+        </div>
+    }
+
+
+    @if (Model.LocationMap1 != null || Model.LocationMap2 != null || Model.LocationMap3 != null)
+    {
+        <div class="gallery-container mb-4 text-center" style="max-width: 900px; margin: 0 auto;">
+            <div class="gallery d-flex justify-content-center align-items-center">
+                @if (Model.LocationMap1 != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.LocationMap1)"
+                       data-lightbox="starmaps"
+                       data-title="Starmap 1"
+                       class="gallery-item">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocationMap1)"
+                             alt="Starmap 1"
+                             class="img-thumbnail"
+                             style="max-width: 400px;" />
+                    </a>
+                }
+                @if (Model.LocationMap2 != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.LocationMap2)"
+                       data-lightbox="starmaps"
+                       data-title="Starmap 2"
+                       class="gallery-item">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocationMap2)"
+                             alt="Starmap 2"
+                             class="img-thumbnail"
+                             style="max-width: 400px;" />
+                    </a>
+                }
+                @if (Model.LocationMap3 != null)
+                {
+                    <a href="data:image/png;base64,@Convert.ToBase64String(Model.LocationMap3)"
+                       data-lightbox="starmaps"
+                       data-title="Starmap 3"
+                       class="gallery-item">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.LocationMap3)"
+                             alt="Starmap 3"
+                             class="img-thumbnail"
+                             style="max-width: 400px;" />
+                    </a>
+                }
+            </div>
+        </div>
+    }
+
+
+    <!-- Briefing -->
+    <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+        @Html.Raw(Model.Briefing)
+    </div>
+
+    <!-- Video -->
+    @if (!string.IsNullOrEmpty(Model.Video))
+    {
+        <h3 class="text-center">Video</h3>
+        <div class="mb-4 d-flex justify-content-center">
+            <iframe width="560" height="315" src="@Model.Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    }
+
+    <!-- After Action Report -->
+    @if (!string.IsNullOrEmpty(Model.AfterActionReport))
+    {
+        <div class="mb-4 text-left" style="max-width: 900px; margin: 0 auto;">
+            @Html.Raw(Model.AfterActionReport)
+        </div>
+    }
+
+    <!-- Edit and Delete Buttons -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="d-flex flex-column align-items-center mt-4" style="max-width: 300px; margin: 0 auto;">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.JediArticleId }, new { @class = "btn jedi-btn btn-lg mb-3 w-100" })
+            @Html.ActionLink("Delete", "Delete", new { id = Model.JediArticleId }, new { @class = "btn jedi-btn btn-lg mb-3 w-100" })
+        </div>
+    }
+
+    <!-- Back to List Button -->
+    <div class="d-flex justify-content-center mt-4" style="max-width: 300px; margin: 0 auto;">
+        @Html.ActionLink("Back to List", "Details", "JediSections", new { id = Model.JediSectionId, area = "JediArchives" }, new { @class = "btn jedi-btn btn-lg mb-3 w-100" })
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const galleries = document.querySelectorAll('.gallery-container');
+
+            galleries.forEach(gallery => {
+                const images = gallery.querySelectorAll('.gallery-item');
+
+                // If only one image is present, ensure it's always visible
+                if (images.length === 1) {
+                    images[0].style.display = 'block'; // Ensure the single image is visible
+                } else {
+                    images.forEach(image => {
+                        image.style.display = 'none'; // Hide all images by default
+                    });
+
+                    // Show the first image
+                    if (images.length > 0) {
+                        images[0].style.display = 'block';
+                    }
+                }
+            });
+
+            if (typeof lightbox !== 'undefined') {
+                lightbox.option({
+                    resizeDuration: 200,
+                    wrapAround: true,
+                    alwaysShowNavOnTouchDevices: true
+                });
+                console.log('Lightbox initialized successfully.');
+            } else {
+                console.error('Lightbox.js is not loaded.');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof lightbox !== 'undefined') {
+                lightbox.option({
+                    resizeDuration: 200,
+                    wrapAround: true,
+                    alwaysShowNavOnTouchDevices: true,
+                });
+                console.log('Lightbox initialized successfully.');
+            } else {
+                console.error('Lightbox.js is not loaded.');
+            }
+        });
+    </script>
+}
