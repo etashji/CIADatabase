@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Global War on Terror";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <h2 class="text-center">Jedi Archives</h2>
+
+    <!-- Alternate History Summary -->
+    <div class="mt-4 mb-4">
+        <p>
+            Welcome to the Jedi Archives. Here you can view details about the history of the galaxy, including the origins of humanity, the Force, the Sith, the Jedi, the Republic, and the Empire. You can also view profiles of key figures who would come to shape this galaxy.
+        </p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <!-- View Entries Button -->
+        @Html.ActionLink(
+            "View Entries",
+            "Index",
+            "JediSections",
+            new { area = "JediArchives" },
+            new { @class = "btn jedi-btn mb-4 w-25" }
+        )
+
+        <!-- View Important Individuals Button -->
+        @Html.ActionLink(
+            "View Profiles",
+            "Index",
+            "JediProfileSections",
+            new { area = "JediArchives" },
+            new { @class = "btn jedi-btn mb-4 w-25" }
+        )
+    </div>
+
+</div>

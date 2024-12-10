@@ -8,6 +8,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using CIADatabase.Areas.GWOT.Models;
+using CIADatabase.Areas.JediArchives.Models;
+using CIADatabase.Areas.JediArchives;
 
 namespace CIADatabase.Models
 {
@@ -30,8 +32,10 @@ namespace CIADatabase.Models
         public DbSet<GWOTArticle> GWOTArticles { get; set; }
         public DbSet<GWOTProfileSections> GWOTProfileSections { get; set; }
         public DbSet<GWOTProfile> GWOTProfiles { get; set; }
-
-
+        public DbSet<JediArticle> JediArticles { get; set; }
+        public DbSet<JediSection> JediSections { get; set; }
+        public DbSet<JediProfile> JediProfiles { get; set; }
+        public DbSet<JediProfileSection> JediProfilesSection { get; set;}
     }
 
 }

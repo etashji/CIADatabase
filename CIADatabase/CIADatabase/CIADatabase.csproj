@@ -159,6 +159,15 @@
     <Compile Include="Areas\GWOT\Models\GWOTProfile.cs" />
     <Compile Include="Areas\GWOT\Models\GWOTProfileSections.cs" />
     <Compile Include="Areas\GWOT\Models\GWOTSections.cs" />
+    <Compile Include="Areas\JediArchives\Controllers\JediArticlesController.cs" />
+    <Compile Include="Areas\JediArchives\Controllers\JediProfilesController.cs" />
+    <Compile Include="Areas\JediArchives\Controllers\JediProfileSectionsController.cs" />
+    <Compile Include="Areas\JediArchives\Controllers\JediSectionsController.cs" />
+    <Compile Include="Areas\JediArchives\JediArchivesAreaRegistration.cs" />
+    <Compile Include="Areas\JediArchives\Models\JediArticle.cs" />
+    <Compile Include="Areas\JediArchives\Models\JediProfile.cs" />
+    <Compile Include="Areas\JediArchives\Models\JediProfileSection.cs" />
+    <Compile Include="Areas\JediArchives\Models\JediSection.cs" />
     <Compile Include="Areas\Users\Controllers\UsersController.cs" />
     <Compile Include="Areas\Users\Models\User.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
@@ -211,6 +220,14 @@
     <Compile Include="Migrations\202411200208566_AAR.designer.cs">
       <DependentUpon>202411200208566_AAR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412090328181_JediArchives.cs" />
+    <Compile Include="Migrations\202412090328181_JediArchives.designer.cs">
+      <DependentUpon>202412090328181_JediArchives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412092003597_UpdateArticle.cs" />
+    <Compile Include="Migrations\202412092003597_UpdateArticle.designer.cs">
+      <DependentUpon>202412092003597_UpdateArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -232,6 +249,8 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\images\cia-logo.png" />
+    <Content Include="Content\images\JediLogo.png" />
+    <Content Include="Content\Jedi.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -272,6 +291,27 @@
     <Content Include="Areas\GWOT\Views\GWOTProfiles\Delete.cshtml" />
     <Content Include="Areas\GWOT\Views\GWOTProfiles\Details.cshtml" />
     <Content Include="Areas\GWOT\Views\GWOTProfiles\Edit.cshtml" />
+    <Content Include="Areas\JediArchives\Views\web.config" />
+    <Content Include="Areas\JediArchives\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediSections\Create.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediSections\Delete.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediSections\Details.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediSections\Edit.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediSections\Index.cshtml" />
+    <Content Include="Content\fonts\SF Distant Galaxy.ttf" />
+    <Content Include="Areas\JediArchives\Views\JediArticles\Create.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediArticles\Delete.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediArticles\Details.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediArticles\Edit.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfileSections\Create.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfileSections\Delete.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfileSections\Details.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfileSections\Edit.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfileSections\Index.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfiles\Create.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfiles\Delete.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfiles\Details.cshtml" />
+    <Content Include="Areas\JediArchives\Views\JediProfiles\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -293,14 +333,14 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\CIAIndex.cshtml" />
+    <Content Include="Views\Home\JediIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\GWOT\Data\" />
+    <Folder Include="Areas\JediArchives\Data\" />
     <Folder Include="Areas\Users\Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Users\" />
@@ -365,6 +405,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411200208566_AAR.resx">
       <DependentUpon>202411200208566_AAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412090328181_JediArchives.resx">
+      <DependentUpon>202412090328181_JediArchives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412092003597_UpdateArticle.resx">
+      <DependentUpon>202412092003597_UpdateArticle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

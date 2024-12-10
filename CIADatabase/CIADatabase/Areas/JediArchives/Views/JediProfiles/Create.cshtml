@@ -1,0 +1,107 @@
+﻿@model CIADatabase.Areas.JediArchives.Models.JediProfile
+
+@{
+    ViewBag.Title = "Create Jedi Profile";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex flex-column align-items-stretch mt-5">
+    <div class="text-center">
+        <h2 class="text-center mb-4">Add Profile</h2>
+    </div>
+
+    @using (Html.BeginForm("Create", "JediProfiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal w-100" style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h4 class="text-center mb-4">@ViewBag.SectionTitle</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+            <input type="hidden" name="ProfileSectionId" value="@ViewBag.SectionId" />
+
+            <!-- Profile Picture -->
+            <div class="form-group mb-4">
+                @Html.Label("Profile Picture", "Profile Picture", htmlAttributes: new { @class = "form-label" })
+                <div class="input-container">
+                    <input type="file" name="ProfilePicture" class="form-control jedi-input jedi-file-input" />
+                </div>
+            </div>
+
+            <!-- First Name -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "form-label" })
+                <div class="input-container">
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control jedi-input smaller-input" })
+                </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "form-label" })
+                <div class="input-container">
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control jedi-input smaller-input" })
+                </div>
+            </div>
+
+            <!-- Alias -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(model => model.Alias, htmlAttributes: new { @class = "form-label" })
+                <div class="input-container">
+                    @Html.TextBoxFor(model => model.Alias, new { @class = "form-control jedi-input smaller-input" })
+                </div>
+            </div>
+
+            <!-- Profile Description -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(model => model.Profile, htmlAttributes: new { @class = "form-label" })
+                <div id="ProfileEditor" class="jedi-quill-editor"></div>
+                <input type="hidden" name="Profile" id="ProfileInput" />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group text-center mt-4">
+                <button type="submit" class="btn jedi-btn w-50">Save Profile</button>
+            </div>
+        </div>
+    }
+
+    <!-- Back to List Button -->
+    <div class="form-group text-center mt-4">
+        @Html.ActionLink(
+            "Back to List",
+            "Details",
+            "JediSections",
+            new { id = ViewBag.SectionId },
+            new { @class = "btn jedi-btn w-25" }
+        )
+    </div>
+</div>
+
+<script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+<script>
+    // Initialize Quill for Profile Description
+    var profileEditor = new Quill('#ProfileEditor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link'],
+                [{ 'align': [] }],
+                ['clean']
+            ]
+        }
+    });
+
+    // Sync Profile content with hidden input field
+    profileEditor.on('text-change', function () {
+        document.querySelector('#ProfileInput').value = profileEditor.root.innerHTML;
+    });
+
+    // Explicitly apply styles to ensure they override Quill defaults
+    document.querySelector('#ProfileEditor .ql-editor').style.height = "400px";
+    document.querySelector('#ProfileEditor .ql-editor').style.color = "#00bcd4";
+    document.querySelector('#ProfileEditor .ql-editor').style.backgroundColor = "#000";
+</script>

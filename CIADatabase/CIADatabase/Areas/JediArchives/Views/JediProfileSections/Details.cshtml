@@ -1,0 +1,81 @@
+﻿@model CIADatabase.Areas.JediArchives.Models.JediProfileSection
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">@Html.DisplayFor(model => model.Title)</h2>
+
+
+@if (Request.IsAuthenticated)
+{
+    <!-- Edit, Delete, and Create Article Buttons -->
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center">
+            <!-- Edit Section Button -->
+            @Html.ActionLink("Change Title", "Edit", "JediProfileSections", new { id = Model.SectionId }, new { @class = "btn btn-glow mx-2" })
+
+            <!-- Delete Section Button -->
+            @Html.ActionLink("Delete", "Delete", "JediProfileSections", new { id = Model.SectionId }, new { @class = "btn btn-glow delete-btn mx-2" })
+
+            <!-- Create New Article Button -->
+            @Html.ActionLink("Add Profile", "Create", "JediProfiles", new { sectionId = Model.SectionId }, new { @class = "btn btn-glow create-article-btn mx-2" })
+        </div>
+    </div>
+}
+
+<!-- Display all profiles that belong to this section -->
+<div class="row mt-4">
+    <div class="col-12">
+        <h4 class="section-title">Profiles in this Section</h4>
+        <hr />
+    </div>
+
+    @if (Model.Profiles != null && Model.Profiles.Any())
+    {
+        <div class="container">
+            <div class="row">
+                @foreach (var profile in Model.Profiles.OrderBy(p => p.LastName))
+                {
+                    <div class="col-12 mb-3 d-flex justify-content-center">
+                        <!-- Dynamically handle name and alias display -->
+                        @if (!string.IsNullOrEmpty(profile.Alias))
+                        {
+                            @Html.ActionLink(
+                                $"{profile.FirstName} \"{profile.Alias}\" {profile.LastName}",
+                                "Details",
+                                "JediProfiles",
+                                new { id = profile.ProfileId, area = "JediArchives" },
+                                new { @class = "btn jedi-btn two-thirds-width" }
+                            )
+                        }
+                        else
+                        {
+                            @Html.ActionLink(
+                                $"{profile.FirstName} {profile.LastName}",
+                                "Details",
+                                "JediProfiles",
+                                new { id = profile.ProfileId, area = "JediArchives" },
+                                new { @class = "btn jedi-btn two-thirds-width" }
+                            )
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="text-center">No profiles available in this section.</p>
+    }
+</div>
+
+
+<!-- Back to List Button -->
+<div class="row mt-4">
+    <div class="col-12 d-flex justify-content-center">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-glow mb-4" })
+    </div>
+</div>
+
