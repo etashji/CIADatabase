@@ -25,6 +25,12 @@ namespace CIADatabase
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/jedi").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/Jedi.css"
+            ));
+
         }
     }
 }

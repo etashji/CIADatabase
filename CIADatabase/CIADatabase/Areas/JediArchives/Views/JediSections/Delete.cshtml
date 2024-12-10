@@ -1,0 +1,37 @@
+﻿@model CIADatabase.Areas.JediArchives.JediSection
+
+@{
+    ViewBag.Title = "Delete Jedi Section";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content-wrapper">
+    <section class="form-section">
+        <h2 class="section-title">Delete Section</h2>
+
+        <p class="confirmation-message">Are you sure you want to delete this section?</p>
+
+            <!-- Section Info -->
+
+                <h3>
+                    @Html.DisplayFor(model => model.Title)
+                </h3>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- Delete Button -->
+                <div class="form-group">
+                    <div class="btn-container">
+                        <input type="submit" value="Delete" class="btn-glow delete-btn" />
+                    </div>
+                </div>
+            }
+
+        <!-- Back to List Button -->
+    <div class="back-link">
+        @Html.ActionLink("Back to Section", "Details", new { id = Model.SectionId }, new { @class = "btn-glow back-button" })
+    </div>
+    </section>
+</main>

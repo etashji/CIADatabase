@@ -1,16 +1,16 @@
-﻿@model IEnumerable<CIADatabase.Areas.GWOT.GWOTSections>
+﻿@model IEnumerable<CIADatabase.Areas.JediArchives.JediSection>
 
 @{
-    ViewBag.Title = "GWOT";
-    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">Global War on Terror</h2>
+<h2 class="text-center">Jedi Archives</h2>
 
 @if (Request.IsAuthenticated)
 {
     <div class="text-center mb-4">
-        @Html.ActionLink("Add Section", "Create", null, new { @class = "btn custom-btn" })
+        @Html.ActionLink("Add Section", "Create", null, new { @class = "btn-glow mx-auto" })
     </div>
 }
 
@@ -18,9 +18,9 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-12 text-center mb-3">
+            <div class="col-12 mb-3 d-flex justify-content-center">
                 <!-- Button styled link for section title -->
-                @Html.ActionLink(item.Title, "Details", new { id = item.SectionId }, new { @class = "btn custom-btn w-75" })
+                @Html.ActionLink(item.Title, "Details", new { id = item.SectionId }, new { @class = "jedi-btn two-thirds-width" })
             </div>
         }
     </div>
