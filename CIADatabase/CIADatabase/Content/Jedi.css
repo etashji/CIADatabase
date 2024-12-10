@@ -1,0 +1,562 @@
+﻿/* =============== General Resets =============== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Distant Galaxy'; /* Custom Star Wars font */
+    background-color: #000; /* Space black background */
+    color: #fff; /* White text for high contrast */
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'SF Distant Galaxy';
+    letter-spacing: 2px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+p {
+    font-family: 'SF Distant Galaxy'
+}
+
+ul {
+    list-style: none;
+}
+
+footer {
+    font-family: 'SF Distant Galaxy';
+}
+
+.dl-horizontal {
+    font-family: 'SF Distant Galaxy';
+}
+
+/* =============== Header =============== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #00bcd4; /* Light blue border */
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    font-family: 'SF Distant Galaxy';
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    font-family: 'SF Distant Galaxy';
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+    nav a:hover {
+        background-color: #00bcd4;
+        color: #000;
+    }
+
+/* =============== Hero Section =============== */
+#hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('space-background.jpg') no-repeat center center/cover;
+    color: #fff;
+}
+
+    #hero h2 {
+        font-size: 3rem;
+        text-shadow: 0 0 15px #00bcd4;
+        margin-bottom: 20px;
+    }
+
+    #hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+.btn-glow {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #00bcd4;
+    color: #000;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+}
+
+    .btn-glow:hover {
+        background-color: #fff;
+        color: #00bcd4;
+        box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+    }
+
+/* =============== Profiles Section =============== */
+#profiles {
+    padding: 50px 20px;
+    background: url('jedi-temple.jpg') no-repeat center center/cover;
+}
+
+    #profiles h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+.profile-card {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 300px;
+    transition: all 0.3s ease;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 10px #00bcd4;
+}
+
+    .profile-card img {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .profile-card h3 {
+        font-family: 'SF Distant Galaxy';
+        font-size: 1.5rem;
+        margin-top: 15px;
+    }
+
+    .profile-card p {
+        font-family: 'SF Distant Galaxy';
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .profile-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #00bcd4;
+    }
+
+/* =============== Footer =============== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    border-top: 2px solid #00bcd4;
+    color: #fff;
+}
+
+    footer p {
+        font-size: 1rem;
+    }
+
+/* =============== Animations =============== */
+@keyframes crawl {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.crawl-text {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    animation: crawl 60s linear infinite;
+}
+
+/* Import the new font */
+@font-face {
+    font-family: 'SF Distant Galaxy';
+    src: url('/Content/fonts/SF Distant Galaxy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Star Jedi';
+}
+
+#crawl {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.crawl-text {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    text-align: center;
+    color: #ffcc00;
+    font-family: 'Star Jedi';
+    animation: crawl 30s linear infinite;
+    font-family: 'SF Distant Galaxy';
+}
+
+/* Center everything in the page */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 30px 40px;
+    max-width: 400px; /* Smaller width */
+    width: 100%;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 20px #00bcd4;
+    text-align: center; /* Center the text */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 20px #00bcd4;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: center; /* Center the input */
+}
+
+.form-label {
+    display: block;
+    font-size: 1.2rem;
+    color: #00bcd4;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #00bcd4;
+    font-family: 'SF Distant Galaxy';
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.jedi-input {
+    width: 70%; /* Reduced width */
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #00bcd4;
+    background-color: #000 !important; /* Input background is always black */
+    color: #00bcd4 !important; /* Input text color is always light blue */
+    outline: none !important;
+    text-align: center;
+    box-shadow: none !important; /* Remove any shadow effects */
+    font-family: 'SF Distant Galaxy';
+}
+
+.jedi-input::placeholder {
+    color: #666; /* Optional: placeholder color */
+}
+
+.jedi-input:focus {
+    border-color: #00bcd4 !important; /* Optional: Border color stays light blue */
+    background-color: #000 !important; /* Ensures background remains black */
+    color: #00bcd4 !important; /* Text remains light blue */
+    box-shadow: none !important; /* Remove any shadow effects */
+    outline: none !important; /* No outline */
+}
+
+/* Chrome and Firefox autofill background removal */
+.jedi-input:-webkit-autofill,
+.jedi-input:-webkit-autofill:hover, 
+.jedi-input:-webkit-autofill:focus, 
+.jedi-input:-webkit-autofill:active {
+    background-color: #000 !important; /* Keeps the input background black */
+    color: #00bcd4 !important; /* Keeps the input text light blue */
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #00bcd4 !important; /* Autofill text color */
+}
+
+.jedi-input:-moz-autofill {
+    background-color: #000 !important; /* Keeps the input background black */
+    color: #00bcd4 !important; /* Keeps the input text light blue */
+}
+
+
+
+.text-danger {
+    color: #ff6347;
+    font-family: 'SF Distant Galaxy';
+}
+
+.btn-container {
+    text-align: center; /* Center the button */
+}
+
+.btn-glow {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #00bcd4;
+    color: #000;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    font-family: 'SF Distant Galaxy';
+}
+
+    .btn-glow:hover {
+        background-color: #fff;
+        color: #00bcd4;
+        box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+    }
+
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    border: 2px solid #00bcd4;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+    .back-button:hover {
+        background-color: #00bcd4;
+        color: #000;
+        box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+    }
+
+.validation-message {
+    display: block; /* Ensure it appears on a new line */
+    margin-top: 5px; /* Space between input and validation */
+    color: #ff6347; /* Matches the original text-danger color */
+    font-size: 0.9rem; /* Slightly smaller than the input font */
+    text-align: center; /* Center the validation message */
+}
+
+/* =============== Full Width Button Styles =============== */
+.two-thirds-width {
+    width: 66.666%; /* 2/3 of the page */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jedi-btn {
+    display: inline-block;
+    padding: 10px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00bcd4; /* Light blue text color */
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    overflow: hidden;
+    font-family: 'SF Distant Galaxy';
+}
+
+    .jedi-btn:hover {
+        color: #fff; /* Change text to white */
+        background-color: #00bcd4; /* Glowing background */
+        border-color: #00bcd4;
+        box-shadow: 0 0 30px #00bcd4, 0 0 60px #00bcd4;
+    }
+
+    .jedi-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00bcd4;
+        opacity: 0;
+        z-index: -1;
+        transition: all 0.4s ease;
+    }
+
+    .jedi-btn:hover::before {
+        opacity: 0.2;
+    }
+
+    .jedi-btn::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        border: 2px solid #00bcd4;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #00bcd4;
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    .jedi-btn:hover::after {
+        box-shadow: 0 0 30px #00bcd4;
+    }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.smaller-input {
+    width: 50%; /* Adjust this percentage to make it wider or narrower */
+    max-width: 250px; /* Optional: Ensures it never gets too wide */
+}
+
+.extra-small-input {
+    width: 20%; /* Make it very narrow */
+    max-width: 100px; /* Optional: Ensures it never gets too wide */
+}
+
+/* === Jedi File Input Styling === */
+.jedi-file-input {
+    width: 70%; 
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #00bcd4;
+    background-color: #000 !important; 
+    color: #00bcd4 !important; 
+    outline: none !important;
+    text-align: center;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; 
+    font-family: 'SF Distant Galaxy';
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.jedi-file-input::file-selector-button {
+    background-color: #000;
+    color: #00bcd4;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: 'SF Distant Galaxy';
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+}
+
+.jedi-file-input::file-selector-button:hover {
+    background-color: #00bcd4;
+    color: #000;
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+}
+
+.jedi-file-input:hover {
+    border-color: #fff !important; 
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff; 
+}
+
+.jedi-file-input:focus {
+    border-color: #00bcd4 !important; 
+    box-shadow: 0 0 20px #fff, 0 0 40px #00bcd4; 
+    outline: none !important; 
+}
+
+.jedi-file-input::-webkit-file-upload-button {
+    background-color: #00bcd4;
+    color: #000;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'SF Distant Galaxy';
+    transition: all 0.3s ease;
+}
+
+.jedi-file-input::-webkit-file-upload-button:hover {
+    background-color: #fff;
+    color: #00bcd4;
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+}
+
+/* Autofill for Firefox */
+.jedi-file-input:-moz-autofill {
+    background-color: #000 !important; 
+    color: #00bcd4 !important; 
+}
+
+/* Chrome and Firefox autofill background removal */
+.jedi-file-input:-webkit-autofill,
+.jedi-file-input:-webkit-autofill:hover, 
+.jedi-file-input:-webkit-autofill:focus, 
+.jedi-file-input:-webkit-autofill:active {
+    background-color: #000 !important; 
+    color: #00bcd4 !important; 
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #00bcd4 !important; 
+}
+
+.jedi-thumbnail {
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    transition: all 0.3s ease;
+}
+
+    .jedi-thumbnail:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #00bcd4, 0 0 40px #00bcd4;
+    }

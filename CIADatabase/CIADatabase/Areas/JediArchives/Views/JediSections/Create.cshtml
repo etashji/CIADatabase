@@ -1,0 +1,39 @@
+﻿@model CIADatabase.Areas.JediArchives.JediSection
+
+@{
+    ViewBag.Title = "Create Jedi Section";
+    Layout = "~/Areas/JediArchives/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content-wrapper">
+    <section class="form-section">
+        <h2 class="section-title">Create a New Section</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "form-label" })
+        <div class="input-container">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control jedi-input" } })
+        </div>
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+    </div>
+
+                <div class="form-group">
+                    <div class="btn-container">
+                        <input type="submit" value="Create Section" class="btn-glow" />
+                    </div>
+                </div>
+        }
+
+        <div class="back-link">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-glow back-button" })
+        </div>
+    </section>
+</main>
+
+
