@@ -20,30 +20,35 @@
             <!-- Dropdown for GWOT -->
             <div class="nav-item dropdown">
                 <!-- GWOT main link -->
-                @Html.ActionLink("Entries", "Index", "JediSections", new { area = "JediArchives" }, new { @class = "navbar-brand" })
-
-                <!-- Dropdown menu -->
-                <ul class="dropdown-menu" aria-labelledby="gwotDropdown">
-                    <li>@Html.ActionLink("Clone Wars", "Details", "JediSections", new { area = "JediArchives" }, new { @class = "dropdown-item" })</li>
-                </ul>
+                @Html.ActionLink("Profiles", "Index", "JediProfileSections", new { area = "JediArchives" }, new { @class = "navbar-brand" })
             </div>
+                <!-- Dropdown for GWOT -->
+                <div class="nav-item dropdown">
+                    <!-- GWOT main link -->
+                    @Html.ActionLink("Entries", "Index", "JediSections", new { area = "JediArchives" }, new { @class = "navbar-brand" })
 
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                </ul>
-                <ul class="navbar-nav">
-                    @if (Request.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Sign Out", "Logout", "Users", new { area = "Users" }, new { @class = "navbar-brand" })</li>
-                    }
-                </ul>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu" aria-labelledby="gwotDropdown">
+                        <li>@Html.ActionLink("Clone Wars", "Details", "JediSections", new { area = "JediArchives" }, new { @class = "dropdown-item" })</li>
+                    </ul>
+                </div>
+
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Sign Out", "Logout", "Users", new { area = "Users" }, new { @class = "navbar-brand" })</li>
+                        }
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+</nav>
 
     <!-- CIA Logo Section -->
     <div class="text-center my-3">
