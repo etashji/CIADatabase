@@ -144,6 +144,26 @@
     <div class="d-flex justify-content-center mt-4" style="max-width: 300px; margin: 0 auto;">
         @Html.ActionLink("Back to List", "Details", "JediSections", new { id = Model.JediSectionId, area = "JediArchives" }, new { @class = "btn jedi-btn btn-lg mb-3 w-100" })
     </div>
+
+    <div class="d-flex justify-content-between mt-4 mb-4">
+        @if (ViewBag.PreviousArticle != null)
+        {
+            <a href="@Url.Action("Details", "JediArticles", new { id = ViewBag.PreviousArticle.JediArticleId })" class="btn jedi-btn">
+                &#10094; Previous
+            </a>
+        }
+        else
+        {
+            <div></div> <!-- Placeholder to keep Next button on the right -->
+        }
+        @if (ViewBag.NextArticle != null)
+        {
+            <a href="@Url.Action("Details", "JediArticles", new { id = ViewBag.NextArticle.JediArticleId })" class="btn jedi-btn">
+                Next &#10095;
+            </a>
+        }
+    </div>
+
 </div>
 
 @section Scripts {
