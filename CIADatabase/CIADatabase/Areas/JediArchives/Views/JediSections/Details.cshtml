@@ -34,7 +34,7 @@
 
     @if (Model.Articles != null && Model.Articles.Any())
     {
-        foreach (var article in Model.Articles)
+        foreach (var article in Model.Articles.OrderBy(a => a.Order))
         {
             <div class="col-12 mb-3 d-flex justify-content-center">
                 <!-- Button for each JediArticle entry -->
