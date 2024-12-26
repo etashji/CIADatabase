@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\CIADatabase</_PublishTargetUrl>
-    <History>True|2024-12-11T20:15:40.3886947Z;True|2024-12-10T22:40:08.9372875-05:00;True|2024-12-10T20:08:39.7646053-05:00;True|2024-12-10T17:53:16.7853773-05:00;True|2024-11-27T01:20:56.5624032-05:00;True|2024-11-27T01:15:48.0716686-05:00;True|2024-11-27T01:12:00.7649472-05:00;True|2024-11-27T01:06:14.0113622-05:00;True|2024-11-23T21:25:14.9959550-05:00;True|2024-11-23T20:42:09.5157232-05:00;True|2024-11-19T21:12:24.8190775-05:00;True|2024-11-19T21:02:26.8658837-05:00;True|2024-11-19T20:55:55.1229541-05:00;True|2024-11-19T14:11:31.6917719-05:00;True|2024-11-19T13:57:42.3121105-05:00;False|2024-11-19T13:53:14.8681299-05:00;False|2024-11-19T13:51:53.1145437-05:00;</History>
+    <History>True|2024-12-26T23:29:59.0596960Z;True|2024-12-11T15:15:40.3886947-05:00;True|2024-12-10T22:40:08.9372875-05:00;True|2024-12-10T20:08:39.7646053-05:00;True|2024-12-10T17:53:16.7853773-05:00;True|2024-11-27T01:20:56.5624032-05:00;True|2024-11-27T01:15:48.0716686-05:00;True|2024-11-27T01:12:00.7649472-05:00;True|2024-11-27T01:06:14.0113622-05:00;True|2024-11-23T21:25:14.9959550-05:00;True|2024-11-23T20:42:09.5157232-05:00;True|2024-11-19T21:12:24.8190775-05:00;True|2024-11-19T21:02:26.8658837-05:00;True|2024-11-19T20:55:55.1229541-05:00;True|2024-11-19T14:11:31.6917719-05:00;True|2024-11-19T13:57:42.3121105-05:00;False|2024-11-19T13:53:14.8681299-05:00;False|2024-11-19T13:51:53.1145437-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -82,7 +82,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/11/2024 15:14:20</publishTime>
     </File>
     <File Include="Areas/JediArchives/Views/JediArticles/Edit.cshtml">
-      <publishTime>12/10/2024 17:51:01</publishTime>
+      <publishTime>12/15/2024 15:52:48</publishTime>
     </File>
     <File Include="Areas/JediArchives/Views/JediProfiles/Create.cshtml">
       <publishTime>12/10/2024 17:51:01</publishTime>
@@ -94,7 +94,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/10/2024 17:51:01</publishTime>
     </File>
     <File Include="Areas/JediArchives/Views/JediProfiles/Edit.cshtml">
-      <publishTime>12/10/2024 17:51:01</publishTime>
+      <publishTime>12/15/2024 15:42:15</publishTime>
     </File>
     <File Include="Areas/JediArchives/Views/JediProfileSections/Create.cshtml">
       <publishTime>12/10/2024 17:51:01</publishTime>
@@ -109,7 +109,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/10/2024 17:51:01</publishTime>
     </File>
     <File Include="Areas/JediArchives/Views/JediProfileSections/Index.cshtml">
-      <publishTime>12/10/2024 17:51:01</publishTime>
+      <publishTime>12/26/2024 18:30:34</publishTime>
     </File>
     <File Include="Areas/JediArchives/Views/JediSections/Create.cshtml">
       <publishTime>12/10/2024 17:51:01</publishTime>
@@ -166,10 +166,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 17:29:20</publishTime>
     </File>
     <File Include="bin/CIADatabase.dll">
-      <publishTime>12/11/2024 15:15:40</publishTime>
+      <publishTime>12/26/2024 18:30:44</publishTime>
     </File>
     <File Include="bin/CIADatabase.pdb">
-      <publishTime>12/11/2024 15:15:40</publishTime>
+      <publishTime>12/26/2024 18:30:44</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>11/14/2024 14:53:14</publishTime>
