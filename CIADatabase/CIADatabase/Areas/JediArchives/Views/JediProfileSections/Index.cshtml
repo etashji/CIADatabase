@@ -16,7 +16,7 @@
 
 <div class="container">
     <div class="row">
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderBy(a => a.Title)
         {
             <div class="col-12 mb-3 d-flex justify-content-center">
                 @Html.ActionLink(item.Title, "Details", new { id = item.SectionId }, new { @class = "btn jedi-btn two-thirds-width" })

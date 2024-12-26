@@ -87,7 +87,7 @@
             <div class="form-group mb-4">
                 @Html.LabelFor(model => model.Briefing, htmlAttributes: new { @class = "form-label" })
                 <div id="BriefingEditor" class="jedi-quill-editor" style="height: 600px;"></div>
-                <input type="hidden" name="Briefing" id="BriefingInput" value="@Html.Raw(Model.Briefing)" />
+                <input type="hidden" name="Briefing" id="BriefingInput" value="@Html.Raw(HttpUtility.HtmlDecode(Model.Briefing))" />
             </div>
 
             <!-- Video -->
@@ -102,7 +102,7 @@
             <div class="form-group mb-4">
                 @Html.LabelFor(model => model.AfterActionReport, htmlAttributes: new { @class = "form-label" })
                 <div id="AfterActionReportEditor" class="jedi-quill-editor" style="height: 600px;"></div>
-                <input type="hidden" name="AfterActionReport" id="AfterActionReportInput" value="@Html.Raw(Model.AfterActionReport)" />
+                <input type="hidden" name="AfterActionReport" id="AfterActionReportInput" value="@Html.Raw(HttpUtility.HtmlDecode(Model.AfterActionReport))" />
             </div>
 
             <!-- Submit Button -->

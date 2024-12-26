@@ -75,7 +75,7 @@
             <div class="form-group mb-4">
                 @Html.LabelFor(model => model.Profile, htmlAttributes: new { @class = "form-label" })
                 <div id="ProfileEditor" class="jedi-quill-editor" style="height: 600px;"></div>
-                <input type="hidden" name="Profile" id="ProfileInput" value="@Html.Raw(Model.Profile)" />
+                <input type="hidden" name="Profile" id="ProfileInput" value="@Html.Raw(HttpUtility.HtmlDecode(Model.Profile))" />
             </div>
 
             <!-- Submit Button -->
